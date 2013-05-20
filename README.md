@@ -10,8 +10,6 @@ Basecondition ist ein LESS-Framework, das als Basis zur Entwicklung komplexer We
 Das BSC-Kickstart Repository beinhaltet den LESS-PHP-Compiler, die BSC-LESS-Ressourcen und eine Vorgegebene Datei und Ordnerstruktur welche es erlaubt sofort mit der Umsetzung eines Webseiten Layouts zu beginnen.
 
 
-###### Durch diese Mechanik wird OnTheFly aus LESS CSS. 
-
 
 ## Copyright und Lizenz
 
