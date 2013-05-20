@@ -1,0 +1,50 @@
+// basecondition ~ grid v2.2.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ grid
+// #grid > .wrapper ( 12, 70px, 30px );
+// #grid > .row ( 30px );
+// #grid > .column ( 1, 12, 70px, 30px );
+// #grid > .offset ( 1, 70px, 30px );
+// #grid > .write-columns ( col-, 12, 70px, 30px );
+// #grid > .write-offsets ( offset-, 12, 70px, 30px );
+
+#grid {
+  .wrapper ( @number-of-columns : @base-number-of-columns, @column-width : @base-column-width, @gutter-width : @base-gutter-width ) {
+    #base > .center ();
+    width: ( ( ( @column-width * @number-of-columns ) + ( @gutter-width * @number-of-columns ) ) - @gutter-width );
+  }
+  .row ( @gutter-width : @base-gutter-width ) {
+    #clear > .clearfix ();
+    margin-left: -( @gutter-width );
+  }
+  .column ( @index : 1, @column-width : @base-column-width, @gutter-width : @base-gutter-width ) {
+    #float > .left ();
+    width: ( ( @column-width * @index ) + ( @gutter-width * ( @index - 1 ) ) );
+    margin-left: @gutter-width;
+  }
+  .offset ( @index : 1, @column-width : @base-column-width, @gutter-width : @base-gutter-width ) {
+    margin-left: ( ( @column-width * @index ) + ( @gutter-width * ( @index + 1 ) ) );
+  }
+  .write-columns ( @column-class : col-, @number-of-columns : @base-number-of-columns, @column-width : @base-column-width, @gutter-width : @base-gutter-width ) {
+    .columns ( @index ) when ( @index > 0 ) {
+      (~".@{column-class}@{index}") {
+        #grid > .column ( @index, @column-width, @gutter-width );
+      }
+      .columns ( @index - 1 );
+    }
+    .columns ( 0 ) {}
+    .columns ( @number-of-columns );
+  }
+  .write-offsets ( @offset-class : offset-, @number-of-columns : @base-number-of-columns, @column-width : @base-column-width, @gutter-width : @base-gutter-width ) {
+    .offsets ( @index ) when ( @index > 0 ) {
+      (~".@{offset-class}@{index}") {
+        #grid > .offset ( @index, @column-width, @gutter-width );
+      }
+      .offsets ( @index - 1 );
+    }
+    .offsets ( 0 ) {}
+    .offsets ( @number-of-columns );
+  }
+}

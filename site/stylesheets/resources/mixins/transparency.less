@@ -1,0 +1,27 @@
+// basecondition ~ transparency v2.2.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ opacity
+//  #transparency > .opacity ( 0.5 );
+//  #transparency > .background ( #000, 0.5 );
+//  #transparency > .border ( #000, 0.5 );
+
+#transparency {
+  .opacity ( @alpha ) {
+    @msOpacity: @alpha * 100;
+    
+    -webkit-opacity: @alpha;
+     -khtml-opacity: @alpha;
+       -moz-opacity: @alpha;
+            opacity: @alpha;
+         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{msOpacity})";
+  }
+  .background ( @color, @alpha ) {
+    background-color: @color;
+    #translucent > .background( @color, @alpha );
+  }
+  .border ( @color, @alpha) {
+    #translucent > .border(  @color, @alpha );
+  }
+}

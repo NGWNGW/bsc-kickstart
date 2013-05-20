@@ -1,0 +1,33 @@
+// basecondition ~ base v2.2.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ base
+//  #base > .html-body ();
+//  #base > .center ();
+//  #base > .pointer ();
+
+#base {
+  .html-body () {
+    html,
+    body {
+      #unset > .distances ();
+      #size >.square ( 100% );
+    }
+    body {
+      background: @base-body-background;
+      font-family: @base-font-family;
+      color: @base-font-color;
+    }
+  }
+  .center () {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pointer () {
+    cursor: pointer;
+  }
+}
+.center () {
+  #base > .center ();
+}

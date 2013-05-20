@@ -1,0 +1,32 @@
+// basecondition ~ border v2.2.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ border
+//  #border > .radius ( 5px );
+//  #border > .radius ( 10px, 20px, 20px, 10px );
+//  #border > .lines ( 1px solid #ccc );
+//  #border > .lines ( 1px solid #ccc, 1px solid #ccc, 1px solid #ccc, 1px solid #ccc );
+
+#border {
+  .border-radius ( @radius ) {
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+            border-radius: @radius;
+  }
+  .radius ( @radius, @radius-2 : false, @radius-3 : false, @radius-4 : false ) when ( @radius-2 = false ) and ( @radius-3 = false ) and ( @radius-4 = false ) {
+    #border > .border-radius ( @radius );
+  }
+  .radius ( @top-left, @top-right : false, @bottom-left : false, @bottom-right : false ) when not ( @top-right = false ) and not ( @bottom-left = false ) and not ( @bottom-right = false ) {
+    #border > .border-radius ( @top-left @top-right @bottom-left @bottom-right );
+  }
+  .lines ( @border, @border-2 : false, @border-3 : false, @border-4 : false ) when ( @border-2 = false ) and ( @border-3 = false ) and ( @border-4 = false ) {
+    border: @border;
+  }
+  .lines ( @top, @right : false, @bottom : false, @left : false ) when not ( @right = false ) and not ( @bottom = false ) and not ( @left = false ) {
+    border-top: @top;
+    border-right: @right;
+    border-bottom: @bottom;
+    border-left: @left;
+  }
+}

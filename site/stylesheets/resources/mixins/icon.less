@@ -1,0 +1,29 @@
+// basecondition ~ icon v2.2.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ icon
+//  #icon > .icon-base ( entypo );
+//  #icon > .icon ( star-empty, "\2606" );
+
+#icon {
+  .icon ( @name, @content ) {
+    .@{name}:before {
+      content: "@{content}";
+    }
+  }
+  .icon-base ( @font-name ) {
+    font-family: "@{font-name}";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: absolute;
+    height: inherit;
+    text-decoration: none;
+    zoom: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+}

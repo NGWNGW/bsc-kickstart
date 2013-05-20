@@ -1,0 +1,19 @@
+// basecondition ~ translucent v2.2.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ translucent
+//  #translucent > .background( #f57e20, 0.5 );
+//  #translucent > .border( #f57e20, 0.5 );
+
+// Add an alphatransparency value to any background or border color (via Elyse Holladay)
+#translucent {
+  .background ( @color, @alpha : 1 ) {
+    background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+  }
+  .border ( @color, @alpha : 1 ) {
+    border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+    webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+}
