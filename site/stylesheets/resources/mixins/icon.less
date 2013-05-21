@@ -3,13 +3,19 @@
 // licensed under MIT or GPLv3 ~ git.io/n23c3Q
 
 // ----------------------------------------------------- ~ icon
-//  #icon > .icon-base ( entypo );
+//  #icon > .icon-base ( 'entypo' );
+//  #icon > .before ( "\2606" );
 //  #icon > .icon ( star-empty, "\2606" );
 
 #icon {
-  .icon ( @name, @content ) {
-    .@{name}:before {
+  .before ( @content ) {
+    &:before {
       content: "@{content}";
+    }
+  }
+  .icon ( @name, @content ) {
+    .@{name} {
+      #icon > .before ( @content );
     }
   }
   .icon-base ( @font-name ) {
