@@ -7,7 +7,47 @@
 @import "vendor/h5b-main";
 @import "resources/_lib";
 
-// ----------------------------------------------------- ~ import partials
-@import "partials/_all";
+// ----------------------------------------------------- ~ import elements
+@import "elements/_all";
+
+// ----------------------------------------------------- ~ unset outline
+* {
+  #unset > .outline ();
+}
 
 // ----------------------------------------------------- ~ author's custom styles
+#page {
+  #base > .sticky-footer ( 200px, 500px, 40px, main, footer );
+}
+
+section {
+  #unset > .distances ();
+}
+main {
+  header {
+  }
+  article {
+  }
+}
+footer {
+}
+
+// ----------------------------------------------------- ~ buttons
+// #buttons > .default-buttons ();
+// #buttons > .default-buttons-group ();
+
+// ----------------------------------------------------- ~ forms
+// #forms > .default-form ();
+
+// ----------------------------------------------------- ~ icons
+// #icons > .entypo ();
+
+// ----------------------------------------------------- ~ tables
+// #tables > .default-table ();
+
+// ----------------------------------------------------- ~ typo
+// #types > .default-headlines ();
+// #types > .default-paragraphs ();
+// #types > .default-default-inline-elements ();
+// #types > .default-default-lists ();
+// #types > .default-other-elements ();
