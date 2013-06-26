@@ -9,6 +9,9 @@
 
 #base {
   .html-body () {
+    html {
+      position: relative;
+    }
     html,
     body {
       #unset > .distances ();
@@ -18,6 +21,7 @@
     body {
       font-family: @base-font-family;
       color: @base-font-color;
+      -webkit-font-smoothing: subpixel-antialiased;
     }
   }
   .center () {
