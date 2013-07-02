@@ -1,0 +1,21 @@
+// basecondition ~ base v2.2.1
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ base
+//  #base > .center ();
+//  #base > .pointer ();
+//  .center ();
+
+#base {
+  .center () {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pointer () {
+    cursor: pointer;
+  }
+}
+.center () {
+  #base > .center ();
+}

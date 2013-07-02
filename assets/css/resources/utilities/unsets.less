@@ -1,0 +1,36 @@
+// basecondition ~ unsets v2.2.1
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ unsets
+//  #unset > .distances ();
+//  #unset > .list ();
+//  #unset > .outline ();
+
+#unset {
+  .distances () {
+    margin: 0;
+    padding: 0;
+  }
+  .list () {
+    #unset > .distances ();
+    list-style: none;
+    
+    li {
+      #unset > .distances ();
+    }
+  }
+  .outline () {
+    outline: 0 none !important;
+    
+    &:hover,
+    &:focus,
+    &:visited,
+    &:active {
+      outline: 0 none !important;
+    }
+    &::-moz-focus-inner {
+      border: 0 solid transparent;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+// basecondition ~ transform v2.2.1
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ transform
+//  #transform > .skew ( 35deg, 0deg );
+//  #transform > .scale ( 0.5 );
+//  #transform > .rotate ( 35deg );
+//  #transform > .translate ( 20px, 10px );
+//  #transform > .translate3d ( 20px, 10px, 30px );
+//  
+//  #transform > .mix ( 5deg, 0.5, 1deg, 2deg, 20px, 10px );
+//  #transform > .mix ( 5deg, 0.5, 1deg, 2deg, 20px, 10px, 30px );
+
+#transform {
+  .transform ( @val-webkit, @val-ms ) {
+    -webkit-transform: @val-webkit;
+       -moz-transform: @val-webkit;
+        -ms-transform: @val-ms;
+         -o-transform: @val-webkit;
+            transform: @val-webkit;
+  }
+  .mix ( @rotate : 0deg, @scale : 1, @skew-x : 0deg, @skew-y : 0deg, @translate-x : 0px, @translate-y : 0px, @translate-z : 0px ) when ( @translate-z = 0px ) {
+    @val-webkit: rotate(@rotate) scale(@scale) skew(@skew-x, @skew-y) translate(@translate-x, @translate-y);
+    @val-ms: rotate(@rotate) scale(@scale) skewX(@skew-x) skewY(@skew-y) translate(@translate-x, @translate-y);
+    #transform > .transform ( @val-webkit, @val-ms );
+  }
+  .mix ( @rotate : 0deg, @scale : 1, @skew-x : 0deg, @skew-y : 0deg, @translate-x : 0px, @translate-y : 0px, @translate-z : 0px ) when not ( @translate-z = 0px ) {
+    @val-webkit: rotate(@rotate) scale(@scale) skew(@skew-x, @skew-y) translate3d(@translate-x, @translate-y, @translate-z);
+    @val-ms: rotate(@rotate) scale(@scale) skewX(@skew-x) skewY(@skew-y) translate3d(@translate-x, @translate-y, @translate-z);
+    #transform > .transform ( @val-webkit, @val-ms );
+  }
+  .translate ( @x, @y ) {
+    @val: translate(@x, @y, @z);
+    #transform > .transform ( @val, @val );
+  }
+  .translate3d ( @x, @y, @z ) {
+    @val: translate3d(@x, @y, @z);
+    #transform > .transform ( @val, @val );
+  }
+  .scale ( @ratio ) {
+    @val: scale(@ratio);
+    #transform > .transform ( @val, @val );
+  }
+  .skew ( @x-deg, @y-deg ) {
+    @val-webkit: skew(@x-deg, @y-deg);
+    @val-ms: skewX(@x-deg) skewY(@y-deg);
+    #transform > .transform ( @val-webkit, @val-ms );
+    -webkit-backface-visibility: hidden;
+  }
+  .rotate ( @deg ) {
+    @val: rotate(@deg);
+    #transform > .transform ( @val, @val );
+  }
+}

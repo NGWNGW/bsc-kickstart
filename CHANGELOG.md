@@ -1,5 +1,8 @@
 ## Basecondition Kickstart Changelog
 
+### 0.2
+
+* add resources 2.2.1
 
 ### 0.1
 

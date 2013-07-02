@@ -1,4 +1,4 @@
-## Basecondition LESS-Framework 2.2 - BSC-Kickstart
+## Basecondition LESS-Framework 2.2.1 - BSC-Kickstart
 
 ### Was ist Basecondition?
 

@@ -1,0 +1,30 @@
+// basecondition ~ clear v2.2.1
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+
+// ----------------------------------------------------- ~ clear
+//  #clear > .clearfix ();
+//  #clear > .both ();
+//  .cfx ();
+
+#clear {
+  .clearfix () {
+    *zoom: 1;
+    
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+      line-height: 0;
+    }
+    &:after {
+      #clear > .both ();
+    }
+  }
+  .both () {
+    clear: both;
+  }
+}
+.cfx () {
+  #clear > .clearfix ();
+}
