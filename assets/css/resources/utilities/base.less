@@ -5,17 +5,33 @@
 // ----------------------------------------------------- ~ base
 //  #base > .center ();
 //  #base > .pointer ();
+//  #base > .center-list ();
 //  .center ();
 
 #base {
-  .center () {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .pointer () {
-    cursor: pointer;
-  }
+    .center () {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .center-list () {
+        #float > .right ();
+        text-align: left;
+        position: relative;
+        left: -50%;
+        
+        ul {
+            position: relative;
+            left: 50%;
+            
+            li {
+                #float > .left ();
+            }
+        }
+    }
+    .pointer () {
+        cursor: pointer;
+    }
 }
 .center () {
-  #base > .center ();
+    #base > .center ();
 }

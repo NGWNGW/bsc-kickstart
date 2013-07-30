@@ -8,7 +8,7 @@ licensed under MIT or GPLv3
 if ( $_REQUEST [ 'f' ] != '' )
 {
   // include getfile class
-  require_once ( dirname ( __FILE__ ) . "/core/lib/getfile.php" );
+  require_once ( dirname ( __FILE__ ) . "/processor/lib/getfile.php" );
   
   // init object
   $objFile = new get_file ();
