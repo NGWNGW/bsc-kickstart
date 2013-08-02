@@ -1,52 +1,52 @@
-// basecondition ~ base v2.2.1
+// basecondition ~ less-framework ~ v2.2.2
 // copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
-// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+// licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ base
-//  #base > .html-body ( #fff, #444, @base-font-family );
-//  #base > .link ( #000, #666, none, underline);
-//  #base > .sticky-footer ( 200px, 500px, 40px, main, footer );
+// #base > .html-body(#fff, #444, @base-font-family );
+// #base > .link(#000, #666, none, underline);
+// #base > .sticky-footer(200px, 500px, 40px, main, footer);
 
 #base {
-  .html-body ( @body-backgorund : #fff, @color : #333, @font-famil : sans-serif ) {
-    html {
-      position: relative;
+    .html-body(@body-backgorund : #fff, @color : #333, @font-famil : sans-serif) {
+        html {
+            position: relative;
+        }
+        html,
+        body {
+            #unset > .distances ();
+            #size > .square(100% );
+            background: @body-backgorund;
+        }
+        body {
+            font-family: @font-famil;
+            color: @color;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
     }
-    html,
-    body {
-      #unset > .distances ();
-      #size > .square ( 100% );
-      background: @body-backgorund;
+    .link(@color, @hover-color, @decoration : underline, @hover-decoration : none) {
+        color: @color;
+        text-decoration: @decoration;
+        
+        &:hover {
+            color: @hover-color;
+            text-decoration: @hover-decoration
+        }
     }
-    body {
-      font-family: @font-famil;
-      color: @color;
-      -webkit-font-smoothing: subpixel-antialiased;
+    .sticky-footer(@footer-height, @main-min-height, @add-main-bottom-padding: 0, @main : main, @footer : footer) {
+        min-height: 100%;
+        position: relative;
+        
+        #@{main} {
+            position: relative;
+            min-height: @main-min-height * 1px;
+            padding-bottom: ceil( @footer-height + @add-main-bottom-padding)* 1px;
+        }
+        @{footer} {
+            position: absolute;
+            height: @footer-height * 1px;
+            width: 100%;
+            bottom: 0;
+        }
     }
-  }
-  .link ( @color, @hover-color, @decoration : underline, @hover-decoration : none ) {
-    color: @color;
-    text-decoration: @decoration;
-    
-    &:hover {
-      color: @hover-color;
-      text-decoration: @hover-decoration
-    }
-  }
-  .sticky-footer ( @footer-height, @main-min-height, @add-main-bottom-padding: 0, @main : main, @footer : footer ) {
-    min-height: 100%;
-    position: relative;
-    
-    #@{main} {
-      position: relative;
-      min-height: @main-min-height * 1px;
-      padding-bottom: ceil( @footer-height + @add-main-bottom-padding ) * 1px;
-    }
-    @{footer} {
-      position: absolute;
-      height: @footer-height * 1px;
-      width: 100%;
-      bottom: 0;
-    }
-  }
 }

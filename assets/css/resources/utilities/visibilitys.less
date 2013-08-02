@@ -1,103 +1,103 @@
-// basecondition ~ visibilitys v2.2.1
+// basecondition ~ less-framework ~ v2.2.2
 // copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
-// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+// licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ visibility
-//  #visibility > .hide-text ();
-//  #visibility > .invisible ();
-//  #visibility > .visible ();
-//  #visibility > .responsive ();
-//  #visibility > .print ();
-//  .hide-text ();
+// #visibility > .hide-text();
+// #visibility > .invisible();
+// #visibility > .visible();
+// #visibility > .responsive();
+// #visibility > .print();
+// .hide-text();
 
 #visibility {
-  .hide-text () {
-    font: 0/0 a;
-    color: transparent;
-    text-shadow: none;
-    background-color: transparent;
-    border: 0;
-  }
-  .invisible () {
-    visibility: hidden;
-  }
-  .visible () {
-    visibility: visible;
-  }
-  .responsive () {
-    // IE10 metro responsive
-    @-ms-viewport {
-      width: device-width;
+    .hide-text() {
+        font: 0/0 a;
+        color: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        border: 0;
     }
-    .visible-phone,
-    .visible-tablet,
-    .hidden-desktop {
-      #display > .hide ();
+    .invisible() {
+        visibility: hidden;
     }
-    .visible-desktop {
-      #display > .inherit ();
+    .visible() {
+        visibility: visible;
     }
-    @media (min-width: 768px) and (max-width: 979px) {
-      .hidden-desktop,
-      .visible-tablet { 
-        #display > .inherit ();
-      }
-      .visible-desktop,
-      .hidden-tablet {
-        #display > .hide ();
-      }
+    .responsive() {
+        // IE10 metro responsive
+        @-ms-viewport {
+            width: device-width;
+        }
+        .visible-phone,
+        .visible-tablet,
+        .hidden-desktop {
+            #display > .hide();
+        }
+        .visible-desktop {
+            #display > .inherit();
+        }
+        @media (min-width: 768px) and (max-width: 979px) {
+            .hidden-desktop,
+            .visible-tablet { 
+                #display > .inherit();
+            }
+            .visible-desktop,
+            .hidden-tablet {
+                #display > .hide();
+            }
+        }
+        @media (max-width: 767px) {
+            .hidden-desktop,
+            .visible-phone {
+                #display > .inherit();
+            }
+            .visible-desktop,
+            .hidden-phone {
+                #display > .hide();
+            }
+        }
     }
-    @media (max-width: 767px) {
-      .hidden-desktop,
-      .visible-phone {
-        #display > .inherit ();
-      }
-      .visible-desktop,
-      .hidden-phone {
-        #display > .hide ();
-      }
+    .print() {
+        .visible-print {
+            #display > .hide();
+        }
+        @media print {
+            .visible-print {
+                #display > .inherit();
+            }
+            .hidden-print {
+                #display > .hide();
+            }
+        }
     }
-  }
-  .print () {
-    .visible-print {
-      #display > .hide ();
-    }
-    @media print {
-      .visible-print {
-        #display > .inherit ();
-      }
-      .hidden-print {
-        #display > .hide ();
-      }
-    }
-  }
 }
-.hide-text () {
-   #visibility > .hide-text ();
+.hide-text() {
+     #visibility > .hide-text();
 }
 
 // ----------------------------------------------------- ~ display
-//  #display > .hide ();
-//  #display > .show ();
-//  #display > .inherit ();
-//  #display > .inline ();
+// #display > .hide();
+// #display > .show();
+// #display > .inherit();
+// #display > .inline();
 
 #display {
-  .hide () {
-    display: none !important;
-  }
-  .show () {
-    display: block;
-  }
-  .inherit () {
-    display: inherit !important;
-  }
-  .inline () {
-    display: inline;
-  }
-  .inline-block () {
-    display: inline-block;
-    zoom: 1;
-    *display: inline;
-  }
+    .hide() {
+        display: none !important;
+    }
+    .show() {
+        display: block;
+    }
+    .inherit() {
+        display: inherit !important;
+    }
+    .inline() {
+        display: inline;
+    }
+    .inline-block() {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+    }
 }

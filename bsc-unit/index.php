@@ -1,18 +1,21 @@
 <?php
-/*
-basecondition ~ generate.php v2.2.0
-copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
-licensed under MIT or GPLv3
-*/
+/**
+ * basecondition ~ less-framework ~ v2.2.2
+ * 
+ * @link       git.io/OJYZgw
+ * @copyright  copyright 2013 ~ www.basecondition.com
+ * @autor      Joachim Doerr ~ hello@basecondition.com
+ * @license    licensed under MIT or GPLv3
+ */
 
-if ( $_REQUEST [ 'f' ] != '' )
-{
-  // include getfile class
-  require_once ( dirname ( __FILE__ ) . "/processor/lib/getfile.php" );
-  
-  // init object
-  $objFile = new get_file ();
-  
-  // get output
-  print $objFile->get_it ( $_REQUEST [ 'f' ] );
+/**
+ * check $_REQEUST and initialize process
+ * 
+ * @param  string $_REQUEST['f']    $folder . $filname
+ * @return string                   getBscUnitFile::getIt
+ */
+if ($_REQUEST['f'] != '') {
+    require_once(dirname( __FILE__ ) . "/processor/lib/getFile.php");
+    $objFile = new getBscUnitFile();
+    print $objFile->getIt($_REQUEST['f']);
 }

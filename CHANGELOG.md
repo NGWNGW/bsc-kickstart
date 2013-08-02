@@ -2,7 +2,9 @@
 
 ### 0.2
 
-* add resources 2.2.1
+* add bsc-resources 2.2.2
+* add bsc-unit 2.2.2
+* add GN2-Codestyle
 
 ### 0.1
 

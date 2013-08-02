@@ -1,76 +1,76 @@
-// basecondition ~ form v2.2.1
+// basecondition ~ less-framework ~ v2.2.2
 // copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
-// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+// licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ form
-//  #form > .placeholder ( #ccc );
-//  #form > .font-shorthand ( 12px, normal, 1.3em );
-//  #form > .input-text ( #999, #000, @sansFontFamily );
-//  #form > .input-border ( #ccc, #eee, 3px );
-//  #form > .input-background ( #f5f5f5, #f9f9f9 );
+// #form > .placeholder(#ccc);
+// #form > .font-shorthand(12px, normal, 1.3em);
+// #form > .input-text(#999, #000, @sansFontFamily);
+// #form > .input-border(#ccc, #eee, 3px);
+// #form > .input-background(#f5f5f5, #f9f9f9);
 
 #form {
-  .placeholder ( @color ) {
-    &:-moz-placeholder {
-      color: @color;
+    .placeholder(@color) {
+        &:-moz-placeholder {
+            color: @color;
+        }
+        &:-ms-input-placeholder {
+            color: @color;
+        }
+        &::-webkit-input-placeholder {
+            color: @color;
+        }
     }
-    &:-ms-input-placeholder {
-      color: @color;
+    .font-shorthand (@size, @weight, @line-height) {
+        label,
+        input,
+        button,
+        select,
+        textarea {
+            #font > .shorthand(@size, @weight, @line-height);
+        }
     }
-    &::-webkit-input-placeholder {
-      color: @color;
+    .input-text(@color, @focus-color, @font-family : sans-serif) {
+        textarea,
+        select,
+        input {
+            font-family: @font-family;
+        }
+        .checkbox,
+        .radio {
+            color: @color;
+        }
+        textarea,
+        select,
+        input {
+            color: @color;
+            
+            &:focus {
+                color: @focus-color;
+            }
+        }
     }
-  }
-  .font-shorthand ( @size, @weight, @line-height ) {
-    label,
-    input,
-    button,
-    select,
-    textarea {
-      #font > .shorthand ( @size, @weight, @line-height );
+    .input-border(@color, @focus-color, @radius) {
+        textarea,
+        select,
+        input {
+            #border > .border-radius(@radius);
+            border-color: @color;
+            
+            &:focus {
+                border-color: @focus-color;
+            }
+        }
     }
-  }
-  .input-text ( @color, @focus-color, @font-family : sans-serif ) {
-    textarea,
-    select,
-    input {
-      font-family: @font-family;
+    .input-background(@color, @focus-color) {
+        textarea,
+        select,
+        input {
+            background-color: @color;
+            
+            &:focus {
+                background-color: @focus-color;
+            }
+        }
     }
-    .checkbox,
-    .radio {
-      color: @color;
-    }
-    textarea,
-    select,
-    input {
-      color: @color;
-      
-      &:focus {
-        color: @focus-color;
-      }
-    }
-  }
-  .input-border ( @color, @focus-color, @radius ) {
-    textarea,
-    select,
-    input {
-      #border > .border-radius ( @radius );
-      border-color: @color;
-      
-      &:focus {
-        border-color: @focus-color;
-      }
-    }
-  }
-  .input-background ( @color, @focus-color ) {
-    textarea,
-    select,
-    input {
-      background-color: @color;
-      
-      &:focus {
-        background-color: @focus-color;
-      }
-    }
-  }
 }

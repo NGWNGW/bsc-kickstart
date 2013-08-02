@@ -1,13 +1,13 @@
-// basecondition ~ reflection v2.2.1
+// basecondition ~ less-framework ~ v2.2.2
 // copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
-// licensed under MIT or GPLv3 ~ git.io/n23c3Q
+// licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ reflection
-//  #reflection .reflect ();
-//  #reflection .reflect ( 20%, 0.2 );
+// #reflection .reflect();
+// #reflection .reflect(20%, 0.2);
 
 #reflection {
-  .reflect ( @length : 50%, @alpha : 0.2 ) {
-    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@alpha)));
-  }
+    .reflect(@length : 50%, @alpha : 0.2) {
+        -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255, 255, 255, @alpha)));
+    }
 }
