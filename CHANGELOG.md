@@ -1,5 +1,9 @@
 ## Basecondition Kickstart Changelog
 
+### 0.2.rc-1
+
+* add bsc-unit 2.2.2.rc-1
+
 ### 0.2
 
 * add bsc-resources 2.2.2
