@@ -12,11 +12,11 @@
     .font-face(@font-name, @font-path, @font-file-name, @font-weight : normal, @font-style : normal, @include-svg : false, @format : embedded-opentype) when (@include-svg) {
         @font-face {
             font-family: @font-name;
-            src: url("@{font-path}/@{font-file-name}.eot");
-            src: url("@{font-path}/@{font-file-name}.eot?#iefix") format("embedded-opentype"),
-                 url("@{font-path}/@{font-file-name}.woff") format("woff"),
-                 url("@{font-path}/@{font-file-name}.ttf") format("truetype"),
-                 url("@{font-path}/@{font-file-name}.svg#@{font-name}") format("svg");
+            src: url('@{font-path}/@{font-file-name}.eot');
+            src: url('@{font-path}/@{font-file-name}.eot?#iefix') format('embedded-opentype'),
+                 url('@{font-path}/@{font-file-name}.woff') format('woff'),
+                 url('@{font-path}/@{font-file-name}.ttf') format('truetype'),
+                 url('@{font-path}/@{font-file-name}.svg#@{font-name}') format('svg');
             font-weight: @font-weight;
             font-style: normal;
         }
@@ -24,10 +24,10 @@
     .font-face(@font-name, @font-path, @font-file-name, @font-weight : normal, @font-style : normal, @include-svg : false, @format : embedded-opentype) when not (@include-svg) {
         @font-face {
             font-family: @font-name;
-            src: url("@{font-path}/@{font-file-name}.eot");
-            src: url("@{font-path}/@{font-file-name}.eot?#iefix") format("@{format}"),
-                 url("@{font-path}/@{font-file-name}.woff") format("woff"),
-                 url("@{font-path}/@{font-file-name}.ttf")    format("truetype");
+            src: url('@{font-path}/@{font-file-name}.eot');
+            src: url('@{font-path}/@{font-file-name}.eot?#iefix') format('@{format}'),
+                 url('@{font-path}/@{font-file-name}.woff') format('woff'),
+                 url('@{font-path}/@{font-file-name}.ttf') format('truetype');
             font-weight: @font-weight;
             font-style: normal;
         }
