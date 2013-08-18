@@ -93,7 +93,7 @@ class getBscUnitFile
         
         if ($arrFileName[sizeof($arrFileName) - 1] == 'css') {
             // include core class
-            require_once(dirname( __FILE__ ) . "/getCss.php");
+            require_once(dirname( __FILE__ ) . "/getcss.php");
             // init css object
             $objCSS = new getBscUnitCss();
             // get output

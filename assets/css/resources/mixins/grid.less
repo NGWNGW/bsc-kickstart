@@ -34,7 +34,7 @@
     }
     .write-columns(@column-class : col-, @number-of-columns : @base-number-of-columns, @column-width : @base-column-width, @gutter-width : @base-gutter-width) {
         .columns (@index) when (@index > 0) {
-            (~".@{column-class}@{index}") {
+            .@{column-class}@{index} {
                 #grid > .column(@index, @column-width, @gutter-width);
             }
             .columns (@index - 1);
@@ -44,7 +44,7 @@
     }
     .write-offsets(@offset-class : offset-, @number-of-columns : @base-number-of-columns, @column-width : @base-column-width, @gutter-width : @base-gutter-width) {
         .offsets(@index) when (@index > 0) {
-            (~".@{offset-class}@{index}") {
+            .@{offset-class}@{index} {
                 #grid > .offset(@index, @column-width, @gutter-width);
             }
             .offsets(@index - 1);

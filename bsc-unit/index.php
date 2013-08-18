@@ -15,7 +15,7 @@
  * @return string                   getBscUnitFile::getIt
  */
 if ($_REQUEST['f'] != '') {
-    require_once(dirname( __FILE__ ) . "/processor/lib/getFile.php");
+    require_once(dirname( __FILE__ ) . "/processor/lib/getfile.php");
     $objFile = new getBscUnitFile();
     print $objFile->getIt($_REQUEST['f']);
 }

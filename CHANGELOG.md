@@ -2,7 +2,8 @@
 
 ### 0.2.rc-2
 
-* add bsc-resources 2.2.2.rc-1
+* add bsc-resources 2.2.2.rc-2
+* add bsc-unit 2.2.2.rc-2
 
 ### 0.2.rc-1
 
