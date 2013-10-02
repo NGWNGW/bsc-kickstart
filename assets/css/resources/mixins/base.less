@@ -1,52 +1,90 @@
-// basecondition ~ less-framework ~ v2.2.2
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// basecondition ~ less-framework ~ v3.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ base
-// #base > .html-body(#fff, #444, @base-font-family );
+// #base > .html(#fff);
+// #base > .body(#fff, #444, @base-font-family);
 // #base > .link(#000, #666, none, underline);
 // #base > .sticky-footer(200px, 500px, 40px, main, footer);
+// #base > .appearance(button);
+// #base > .backface-visibility(hidden);
+
+// @namespace: #base
 
 #base {
-    .html-body(@body-backgorund : #fff, @color : #333, @font-famil : sans-serif) {
-        html {
-            position: relative;
-        }
-        html,
-        body {
-            #unset > .distances ();
-            #size > .square(100% );
-            background: @body-backgorund;
-        }
-        body {
-            font-family: @font-famil;
-            color: @color;
-            -webkit-font-smoothing: subpixel-antialiased;
-        }
+    
+    // @methode: .html
+    // @usage: #base > .html(#fff);
+    
+    .html(@var-body-backgorund: #fff) {
+        #unset > .distances();
+        #size > .square(100%);
+        position: relative;
+        background: @var-body-backgorund;
     }
-    .link(@color, @hover-color, @decoration : underline, @hover-decoration : none) {
-        color: @color;
-        text-decoration: @decoration;
+    
+    // @methode: .body
+    // @usage: #base > .body(#fff, #444, @base-font-family);
+    
+    .body(@var-body-background: #fff, @var-color: #333, @var-font-family: sans-serif) {
+        #unset > .distances();
+        #size > .square(100%);
+        background: @var-body-background;
+        color: @var-color;
+        font-family: @var-font-family;
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+    
+    // @methode: .link
+    // @usage: #base > .link(#000, #ccc, underline, none);
+    
+    .link(@var-color: #000, @var-hover-color: #ccc, @var-decoration: underline, @var-hover-decoration: none) {
+        color: @var-color;
+        text-decoration: @var-decoration;
         
         &:hover {
-            color: @hover-color;
-            text-decoration: @hover-decoration
+            color: @var-hover-color;
+            text-decoration: @var-hover-decoration
         }
     }
-    .sticky-footer(@footer-height, @main-min-height, @add-main-bottom-padding: 0, @main : main, @footer : footer) {
+    
+    // @methode: .sticky-footer
+    // @usage: #base > .sticky-footer(200, 500, 40, main, footer);
+    
+    .sticky-footer(@var-footer-height: 100, @var-main-min-height: 300, @var-add-main-bottom-padding: 0, @var-main: main, @var-footer: footer) {
         min-height: 100%;
         position: relative;
         
-        #@{main} {
+        #@{var-main} {
             position: relative;
-            min-height: @main-min-height * 1px;
-            padding-bottom: ceil( @footer-height + @add-main-bottom-padding)* 1px;
+            min-height: @var-main-min-height * 1px;
+            padding-bottom: ceil(@var-footer-height + @var-add-main-bottom-padding)* 1px;
         }
-        @{footer} {
+        @{var-footer} {
             position: absolute;
-            height: @footer-height * 1px;
+            height: @var-footer-height * 1px;
             width: 100%;
             bottom: 0;
         }
+    }
+    
+    // @methode: .appearance
+    // @usage: #base > .appearance(button); // normal|icon|window|button|menu|field
+    
+    .appearance(@var) {
+        -webkit-appearance: @var;
+           -moz-appearance: @var;
+                appearance: @var;
+    }
+    
+    // @methode: .backface-visibility
+    // @usage: #base > .backface-visibility(hidden); // visible|hidden
+    
+    .backface-visibility(@var) {
+        -webkit-backface-visibility: @var;
+           -moz-backface-visibility: @var;
+            -ms-backface-visibility: @var;
+                backface-visibility: @var;
     }
 }

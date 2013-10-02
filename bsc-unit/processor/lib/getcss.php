@@ -1,6 +1,6 @@
 <?php
 /**
- * basecondition ~ less-framework ~ v2.2.2
+ * basecondition ~ less-framework ~ v3.0
  * 
  * @link       git.io/OJYZgw
  * @copyright  copyright 2013 ~ www.basecondition.com
@@ -258,6 +258,7 @@ class getBscUnitCss
             header ('HTTP/1.0 304 Not Modified');
         } else {
             header('Content-type: text/css');
+            header('Vary: Accept-Encoding');
             header('Last-Modified: ' . gmdate("D, d M Y H:i:s", $this->intLastModificationTime) . " GMT");
             return file_get_contents($this->arrIni['strCacheFolder'] . $this->strCacheFileName);
         }

@@ -1,18 +1,35 @@
-## Basecondition LESS-Framework 0.2 - BSC-Kickstart
-
-### Was ist Basecondition?
-
-Basecondition ist ein LESS-Framework, das als Basis zur Entwicklung komplexer Webseitenlayouts dient.  
+## BSC-Unit ~ Basecondition v3.0
 
 
-### Was beinhaltet das BSC-Kickstart Repository?
+#### What is Basecondition?
 
-Das BSC-Kickstart Repository beinhaltet den LESS-PHP-Compiler, die BSC-LESS-Ressourcen und eine Vorgegebene Datei und Ordnerstruktur welche es erlaubt sofort mit der Umsetzung eines Webseiten Layouts zu beginnen.
+Basecondition is a LESS-Framework for the development of complex web page layouts.
+
+#### What contains the BSC Resources Repository?
+
+This repository contains the BSC-Unit, the BSC-Ressources and a given file- and folder-structure. it permits the immediate beginning of the conversion of a website layout.
 
 
-
-## Copyright und Lizenz
+#### Copyright and licence
 
 Copyright 2013 Joachim Doerr, hello@basecondition.com
 
-Bascondition unterliegt der MIT Lizenz, den genauen Wortlaut ist der [LICENSE.md](https://github.com/joachimdoerr/basecondition/blob/master/LICENSE.md) zu entnehmen.
+Bascondition is MIT licensed, read [LICENSE.md](https://raw.github.com/basecondition/bsc-resources/master/LICENSE.md).
+
+
+***
+
+#### Was ist Basecondition?
+
+Basecondition ist ein LESS-Framework, das als Basis zur Entwicklung komplexer Webseitenlayouts dient.
+
+#### Was beinhaltet das BSC-Resources Repository?
+
+Das BSC-Kickstart Repository beinhaltet die BSC-Unit, die BSC-Ressources und eine vorgegebene Datei und Ordnerstruktur, welche es erlaubt sofort mit der Umsetzung eines Webseiten Layouts zu beginnen.
+
+
+#### Copyright und Lizenz
+
+Copyright 2013 Joachim Doerr, hello@basecondition.com
+
+Bascondition unterliegt der MIT Lizenz, den genauen Wortlaut ist der [LICENSE.md](https://raw.github.com/basecondition/bsc-resources/master/LICENSE.md) zu entnehmen.

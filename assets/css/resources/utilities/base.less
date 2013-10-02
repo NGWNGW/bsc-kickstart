@@ -1,18 +1,28 @@
-// basecondition ~ less-framework ~ v2.2.2
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// basecondition ~ less-framework ~ v3.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ base
 //  #base > .center();
-//  #base > .pointer();
 //  #base > .center-list();
+//  #base > .pointer();
 //  .center();
 
+// @namespace: #base
+
 #base {
+    
+    // @methode: .center
+    // @usage: #base > .center();
+    
     .center() {
         margin-left: auto;
         margin-right: auto;
     }
+    
+    // @methode: .center-list
+    // @usage: #base > .center-list();
+    
     .center-list() {
         #float > .right();
         text-align: left;
@@ -28,10 +38,11 @@
             }
         }
     }
+    
+    // @methode: .pointer
+    // @usage: #base > .pointer();
+    
     .pointer() {
         cursor: pointer;
     }
-}
-.center() {
-    #base > .center();
 }

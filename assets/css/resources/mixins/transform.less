@@ -1,55 +1,97 @@
-// basecondition ~ less-framework ~ v2.2.2
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// basecondition ~ less-framework ~ v3.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ transform
+// http://www.css3-generator.de/transform.html
+// #transform > .transform(~"scale(1) rotate(360deg) translate(20px, 0px) skew(320deg, 0deg)");
 // #transform > .skew(35deg, 0deg);
 // #transform > .scale(0.5);
 // #transform > .rotate(35deg);
 // #transform > .translate(20px, 10px);
 // #transform > .translate3d(20px, 10px, 30px);
-// 
 // #transform > .mix(5deg, 0.5, 1deg, 2deg, 20px, 10px);
 // #transform > .mix(5deg, 0.5, 1deg, 2deg, 20px, 10px, 30px);
 
+// @namespace: #transform
+
 #transform {
-    .transform(@val-webkit, @val-ms) {
-        -webkit-transform: @val-webkit;
-           -moz-transform: @val-webkit;
-            -ms-transform: @val-ms;
-             -o-transform: @val-webkit;
-                transform: @val-webkit;
+    
+    // @methode: .transform
+    // @usage: #transform > .transform(~"scale(1) rotate(360deg) translate(20px, 0px) skew(320deg, 0deg)");
+    
+    .transform(@var-webkit, @var-ms: false) {
+        .inseption(@var, @var-1) when (@var-1 = false) {
+            -webkit-transform: @var;
+               -moz-transform: @var;
+                -ms-transform: @var;
+                 -o-transform: @var;
+                    transform: @var;
+        }
+        .inseption(@var, @var-1) when not (@var-1 = false) {
+            -webkit-transform: @var;
+               -moz-transform: @var;
+                -ms-transform: @var-1;
+                 -o-transform: @var;
+                    transform: @var;
+        }
+        .inseption(@var-webkit, @var-ms);
     }
+    
+    // @methode: .mix
+    // @usage: #transform > .mix(5deg, 0.5, 1deg, 2deg, 20px, 10px);
+    // @usage: #transform > .mix(5deg, 0.5, 1deg, 2deg, 20px, 10px, 30px);
+    
     .mix(@rotate : 0deg, @scale : 1, @skew-x : 0deg, @skew-y : 0deg, @translate-x : 0px, @translate-y : 0px, @translate-z : 0px) when (@translate-z = 0px) {
-        @val-webkit: rotate(@rotate) scale(@scale) skew(@skew-x, @skew-y) translate(@translate-x, @translate-y);
-        @val-ms: rotate(@rotate) scale(@scale) skewX(@skew-x) skewY(@skew-y) translate(@translate-x, @translate-y);
-        #transform > .transform(@val-webkit, @val-ms);
+        @var-webkit: rotate(@rotate) scale(@scale) skew(@skew-x, @skew-y) translate(@translate-x, @translate-y);
+        @var-ms: rotate(@rotate) scale(@scale) skewX(@skew-x) skewY(@skew-y) translate(@translate-x, @translate-y);
+        #transform > .transform(@var-webkit, @var-ms);
     }
     .mix(@rotate : 0deg, @scale : 1, @skew-x : 0deg, @skew-y : 0deg, @translate-x : 0px, @translate-y : 0px, @translate-z : 0px) when not (@translate-z = 0px) {
-        @val-webkit: rotate(@rotate) scale(@scale) skew(@skew-x, @skew-y) translate3d(@translate-x, @translate-y, @translate-z);
-        @val-ms: rotate(@rotate) scale(@scale) skewX(@skew-x) skewY(@skew-y) translate3d(@translate-x, @translate-y, @translate-z);
-        #transform > .transform(@val-webkit, @val-ms);
+        @var-webkit: rotate(@rotate) scale(@scale) skew(@skew-x, @skew-y) translate3d(@translate-x, @translate-y, @translate-z);
+        @var-ms: rotate(@rotate) scale(@scale) skewX(@skew-x) skewY(@skew-y) translate3d(@translate-x, @translate-y, @translate-z);
+        #transform > .transform(@var-webkit, @var-ms);
     }
+    
+    // @methode: .translate
+    // @usage: #transform > .translate(20px, 10px);
+    
     .translate(@x, @y) {
-        @val: translate(@x, @y, @z);
-        #transform > .transform(@val, @val);
+        @var: translate(@x, @y);
+        #transform > .transform(@var, @var);
     }
+    
+    // @methode: .translate3d
+    // @usage: #transform > .translate3d(20px, 10px, 30px);
+    
     .translate3d(@x, @y, @z) {
-        @val: translate3d(@x, @y, @z);
-        #transform > .transform(@val, @val);
+        @var: translate3d(@x, @y, @z);
+        #transform > .transform(@var, @var);
     }
+    
+    // @methode: .scale
+    // @usage: #transform > .scale(0.5);
+    
     .scale(@ratio) {
-        @val: scale(@ratio);
-        #transform > .transform(@val, @val);
+        @var: scale(@ratio);
+        #transform > .transform(@var, @var);
     }
+    
+    // @methode: .skew
+    // @usage: #transform > .skew(35deg, 0deg);
+    
     .skew(@x-deg, @y-deg) {
-        @val-webkit: skew(@x-deg, @y-deg);
-        @val-ms: skewX(@x-deg) skewY(@y-deg);
-        #transform > .transform(@val-webkit, @val-ms);
+        @var-webkit: skew(@x-deg, @y-deg);
+        @var-ms: skewX(@x-deg) skewY(@y-deg);
+        #transform > .transform(@var-webkit, @var-ms);
         -webkit-backface-visibility: hidden;
     }
+    
+    // @methode: .rotate
+    // @usage: #transform > .rotate(35deg);
+    
     .rotate(@deg) {
-        @val: rotate(@deg);
-        #transform > .transform(@val, @val);
+        @var: rotate(@deg);
+        #transform > .transform(@var, @var);
     }
 }

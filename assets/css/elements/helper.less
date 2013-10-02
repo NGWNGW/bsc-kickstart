@@ -1,0 +1,36 @@
+// basecondition ~ less-framework ~ v3.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
+// licensed under MIT or GPLv3 ~ git.io/OJYZgw
+
+// ----------------------------------------------------- ~ helper
+
+// @direct-methode: .background
+// @usage: .background(~"transparent url(../img/logo.png) no-repeat center center");
+// @usage: .background(transparent, '../img/logo.png', no-repeat, center center);
+// @usage: .background(#f57e20, 0.5);
+// @usage: .background(#f57e20);
+
+.background(@var-color: transparent, @var-image: false, @var-repeat: repeat, @var-position: left top) {
+    #background > .background(@var-color, @var-image, @var-repeat, @var-position);
+}
+
+// @direct-methode: .center
+// @usage: .center();
+
+.center() {
+    #base > .center();
+}
+
+// @direct-methode: .cfx
+// @usage: .cfx();
+
+.cfx() {
+    #clear > .clearfix();
+}
+
+// @direct-methode: .hide-text
+// @usage: .hide-text();
+
+.hide-text() {
+     #visibility > .hide-text();
+}

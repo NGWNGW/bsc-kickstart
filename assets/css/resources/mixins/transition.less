@@ -1,35 +1,53 @@
-// basecondition ~ less-framework ~ v2.2.2
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com 
+// basecondition ~ less-framework ~ v3.0
+// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ transition
-// #transition > .transition(background-color 150ms ease-in-out, border 150ms ease-in-out);
+// #transition > .transition(~"background-color 150ms ease-in-out, border 150ms ease-in-out");
 // #transition > .set(all, 2s, linear);
 // #transition > .delay(40ms);
 // #transition > .duration(15ms);
 
+// @namespace: #transition
+
 #transition {
-    .transition(@val) {
-        -webkit-transition: @val;
-           -moz-transition: @val;
-            -ms-transition: @val;
-             -o-transition: @val;
-                transition: @val;
+    
+    // @methode: .transition
+    // @usage: #transition > .transition(~"background-color 150ms ease-in-out, border 150ms ease-in-out");
+    
+    .transition(@var) {
+        -webkit-transition: @var;
+           -moz-transition: @var;
+            -ms-transition: @var;
+             -o-transition: @var;
+                transition: @var;
     }
-    .delay(@delay-time) {
-        -webkit-transition-delay: @delay-time;
-           -moz-transition-delay: @delay-time;
-             -o-transition-delay: @delay-time;
-                transition-delay: @delay-time;
+    
+    // @methode: .delay
+    // @usage: #transition > .delay(40ms);
+    
+    .delay(@var) {
+        -webkit-transition-delay: @var;
+           -moz-transition-delay: @var;
+             -o-transition-delay: @var;
+                transition-delay: @var;
     }
-    .duration(@duration-time) {
-        -webkit-transition-duration: @duration-time;
-           -moz-transition-duration: @duration-time;
-             -o-transition-duration: @duration-time;
-                transition-duration: @duration-time;
+    
+    // @methode: .duration
+    // @usage: #transition > .duration(15ms);
+    
+    .duration(@var) {
+        -webkit-transition-duration: @var;
+           -moz-transition-duration: @var;
+             -o-transition-duration: @var;
+                transition-duration: @var;
     }
+    
+    // @methode: .set
+    // @usage: #transition > .set(all, 2s, linear);
+    
     .set(@prop : all, @time : 1s, @ease : linear) {
-        @val: @prop @time @ease;
-        #transition > .transition(@val);
+        @var: @prop @time @ease;
+        #transition > .transition(@var);
     }
 }

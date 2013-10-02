@@ -1,13 +1,19 @@
 ## Basecondition Kickstart Changelog
 
+### 3.0
+
+* update bsc-resources to v3.0
+* update jqeury to v1.10.2 and v2.0.3
+* update bsc-unit to v3.0
+
 ### 0.2.rc-2
 
-* add bsc-resources 2.2.2.rc-2
-* add bsc-unit 2.2.2.rc-2
+* update bsc-resources to v2.2.2.rc-2
+* update bsc-unit to v2.2.2.rc-2
 
 ### 0.2.rc-1
 
-* add bsc-unit 2.2.2.rc-1
+* update bsc-unit to v2.2.2.rc-1
 
 ### 0.2
 
@@ -17,6 +23,6 @@
 
 ### 0.1
 
-* Alle BSC-Kickstart Dateien hinzugefügt
-* BSC-Resources 2.2 hinzugefügt
-* BSC-Unit 2.2 hinzugefügt
+* add all bsc-kickstart files
+* add bsc-resources 2.2
+* add bsc-unit 2.2
