@@ -1,5 +1,9 @@
 ## Basecondition Kickstart Changelog
 
+### 3.0.rc-1
+
+* update bsc-resources to v3.0.rc-1
+
 ### 3.0
 
 * update bsc-resources to v3.0

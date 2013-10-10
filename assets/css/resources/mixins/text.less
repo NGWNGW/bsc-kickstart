@@ -4,6 +4,8 @@
 
 // ----------------------------------------------------- ~ shadow
 // #text > .shadow(0, 1px, 0, #000, 0.5);
+// #text > .shadow(~"0 0 0.2em rgba(0,0,0,0.9), 0 0 0.2em rgba(0,0,0,0.9), 0 0 0.2em rgba(0,0,0,0.9)");
+// #text > .fill();
 
 // @namespace: #text
 
@@ -11,8 +13,7 @@
     
     // @methode: .shadow
     // @usage: #text > .shadow(0, 1px, 0, #000, 0.5);
-    // @usage: @multi-shadow: 0 0 0.2em rgba(0,0,0,0.9), 0 0 0.2em rgba(0,0,0,0.9), 0 0 0.2em rgba(0,0,0,0.9);
-    //         #text > .shodow(@multi-shadow);
+    // @usage: #text > .shodow(~"0 0 0.2em rgba(0,0,0,0.9), 0 0 0.2em rgba(0,0,0,0.9), 0 0 0.2em rgba(0,0,0,0.9)");
     
     .shadow(@var-x, @var-y: false, @var-blur: false, @var-color: false, @var-alpha: false) {
         .shadow-inseption(@var) {
@@ -29,5 +30,14 @@
             .shadow-inseption(@var @var-1 @var-2 @var-5);
         }
         .inseption(@var-x, @var-y, @var-blur, @var-color, @var-alpha);
+    }
+    
+    // @methode: .fill
+    // @usage: #text > .fill();
+    
+    .fill() {
+        #background > .clip(text);
+        -moz-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
     }
 }
