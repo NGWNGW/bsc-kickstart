@@ -6,6 +6,7 @@
 // #font > .font(ubuntu, ~"../fonts/ubuntu", ubuntu-filename);
 // #font > .font-face(entypo, ~"../fonts/entypo", entypo-filename, 400, normal, false, ie9-skip-eot);
 // #font > .shorthand(12px, normal, 1.4em);
+// #font > .smoothing();
 
 // @var-namespace: #font
 
@@ -52,5 +53,20 @@
         font-size: @var-size;
         font-weight: @var-weight;
         line-height: @var-line-height;
+    }
+    
+    // @methode: .smoothing
+    // @usage: #font > .smoothing(off); off|antialiased|subpixel-antialiased
+    
+    .smoothing(@var: subpixel-antialiased) {
+        .inseption(@var) when not (@var = subpixel-antialiased) {
+             -webkit-font-smoothing: @var;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .inseption(@var) when (@var = subpixel-antialiased) {
+             -webkit-font-smoothing: @var;
+            -moz-osx-font-smoothing: auto;
+        }
+        .inseption(@var);
     }
 }

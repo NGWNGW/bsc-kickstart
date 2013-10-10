@@ -30,10 +30,11 @@
     .body(@var-body-background: #fff, @var-color: #333, @var-font-family: sans-serif) {
         #unset > .distances();
         #size > .square(100%);
-        background: @var-body-background;
+        .background(@var-body-background);
         color: @var-color;
         font-family: @var-font-family;
-        -webkit-font-smoothing: subpixel-antialiased;
+        #base > .backface-visibility(hidden); // http://bit.ly/NEdoDq
+        #font > .smoothing();
     }
     
     // @methode: .link
