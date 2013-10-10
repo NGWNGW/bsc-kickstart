@@ -45,10 +45,10 @@
     // @usage: #grid > .offset(1, 70px, 30px, right);
     
     .offset(@index: 1, @column-width: @base-column-width, @gutter-width: @base-gutter-width, @var-direction: left) {
-        .inseption(@var, @var-1, @var-2, @var3) when (@var-3 = left) {
+        .inseption(@var, @var-1, @var-2, @var-3) when (@var-3 = left) {
             margin-left: ((@var-1 * @var) + (@var-2 * (@var + 1)));
         }
-        .inseption(@var, @var-1, @var-2, @var3) when (@var-3 = right) {
+        .inseption(@var, @var-1, @var-2, @var-3) when (@var-3 = right) {
             margin-right: ((@var-1 * @var) + (@var-2 * (@var + 1)));
         }
         .inseption(@index, @column-width, @gutter-width, @var-direction);
