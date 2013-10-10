@@ -3,6 +3,7 @@
 ### 3.0.rc-1
 
 * update bsc-resources to v3.0.rc-1
+* update bsc-resources to v3.0.rc-1b
 
 ### 3.0
 
