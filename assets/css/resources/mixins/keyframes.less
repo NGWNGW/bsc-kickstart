@@ -16,7 +16,7 @@
         .inseption(@pre, @post, @vendor) {
             @keyframe: ~"@{pre}@@{vendor}keyframes @{var-selector} {@{var}} .none-@{selector}:before ";
             @{keyframe} {text-align: !important;}
-    
+            
             .local(){}
             .local() when (@post=1) {
                 @local: ~"} .none-2-@{var-selector}:before";

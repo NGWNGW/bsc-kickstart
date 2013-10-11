@@ -30,7 +30,7 @@
     .body(@var-body-background: #fff, @var-color: #333, @var-font-family: sans-serif) {
         #unset > .distances();
         #size > .square(100%);
-        .background(@var-body-background);
+        #background > .background(@var-body-background);
         color: @var-color;
         font-family: @var-font-family;
         #base > .backface-visibility(hidden); // http://bit.ly/NEdoDq
@@ -73,7 +73,7 @@
     // @methode: .appearance
     // @usage: #base > .appearance(button); // normal|icon|window|button|menu|field
     
-    .appearance(@var) {
+    .appearance(@var: normal) {
         -webkit-appearance: @var;
            -moz-appearance: @var;
                 appearance: @var;
@@ -82,7 +82,7 @@
     // @methode: .backface-visibility
     // @usage: #base > .backface-visibility(hidden); // visible|hidden
     
-    .backface-visibility(@var) {
+    .backface-visibility(@var: visible) {
         -webkit-backface-visibility: @var;
            -moz-backface-visibility: @var;
             -ms-backface-visibility: @var;

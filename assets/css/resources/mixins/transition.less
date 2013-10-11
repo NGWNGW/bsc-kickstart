@@ -4,7 +4,7 @@
 
 // ----------------------------------------------------- ~ transition
 // #transition > .transition(~"background-color 150ms ease-in-out, border 150ms ease-in-out");
-// #transition > .transition(~"150ms ease-in-out, background 150ms ease-in-out, border 150ms ease-in-out", transform);
+// #transition > .transform(~"150ms ease-in-out, border 150ms ease-in-out");
 // #transition > .set(all, 2s, linear);
 // #transition > .delay(40ms);
 // #transition > .duration(15ms);
@@ -33,6 +33,13 @@
                     transition: @var;
         }
         .inseption(@var, @type);
+    }
+    
+    // @methode: .transform
+    // @usage: #transition > .transform(~"150ms ease-in-out, border 150ms ease-in-out");
+    
+    .transform(@var) {
+        #transition > .transition(@var, transform);
     }
     
     // @methode: .delay

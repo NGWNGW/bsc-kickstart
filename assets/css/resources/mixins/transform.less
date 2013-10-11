@@ -5,13 +5,20 @@
 // ----------------------------------------------------- ~ transform
 // http://www.css3-generator.de/transform.html
 // #transform > .transform(~"scale(1) rotate(360deg) translate(20px, 0px) skew(320deg, 0deg)");
-// #transform > .skew(35deg, 0deg);
-// #transform > .scale(0.5);
-// #transform > .rotate(35deg);
+// #transform > .origin(~"20% top");
 // #transform > .translate(20px, 10px);
+// #transform > .translateX(20px);
+// #transform > .translateY(20px);
 // #transform > .translate3d(20px, 10px, 30px);
-// #transform > .mix(5deg, 0.5, 1deg, 2deg, 20px, 10px);
-// #transform > .mix(5deg, 0.5, 1deg, 2deg, 20px, 10px, 30px);
+// #transform > .scale(0.5, 0.8);
+// #transform > .scaleX(0.5);
+// #transform > .scaleY(0.5);
+// #transform > .skew(35deg, 0deg);
+// #transform > .skewX(35deg);
+// #transform > .skewY(35deg);
+// #transform > .rotate(35deg);
+// #transform > .rotate3d(35deg, 15deg, 10deg);
+// #transform > .style(preserve-3d);
 
 // @namespace: #transform
 
@@ -38,60 +45,139 @@
         .inseption(@var-webkit, @var-ms);
     }
     
-    // @methode: .mix
-    // @usage: #transform > .mix(5deg, 0.5, 1deg, 2deg, 20px, 10px);
-    // @usage: #transform > .mix(5deg, 0.5, 1deg, 2deg, 20px, 10px, 30px);
+    // @methode: .origin
+    // @usage: #transform > .origin(~"20% top");
     
-    .mix(@rotate : 0deg, @scale : 1, @skew-x : 0deg, @skew-y : 0deg, @translate-x : 0px, @translate-y : 0px, @translate-z : 0px) when (@translate-z = 0px) {
-        @var-webkit: rotate(@rotate) scale(@scale) skew(@skew-x, @skew-y) translate(@translate-x, @translate-y);
-        @var-ms: rotate(@rotate) scale(@scale) skewX(@skew-x) skewY(@skew-y) translate(@translate-x, @translate-y);
-        #transform > .transform(@var-webkit, @var-ms);
-    }
-    .mix(@rotate : 0deg, @scale : 1, @skew-x : 0deg, @skew-y : 0deg, @translate-x : 0px, @translate-y : 0px, @translate-z : 0px) when not (@translate-z = 0px) {
-        @var-webkit: rotate(@rotate) scale(@scale) skew(@skew-x, @skew-y) translate3d(@translate-x, @translate-y, @translate-z);
-        @var-ms: rotate(@rotate) scale(@scale) skewX(@skew-x) skewY(@skew-y) translate3d(@translate-x, @translate-y, @translate-z);
-        #transform > .transform(@var-webkit, @var-ms);
+    .origin(@var) {
+        -webkit-transform-origin: @var;
+           -moz-transform-origin: @var;
+            -ms-transform-origin: @var;
+             -o-transform-origin: @var;
+                transform-origin: @var;
     }
     
     // @methode: .translate
     // @usage: #transform > .translate(20px, 10px);
     
-    .translate(@x, @y) {
-        @var: translate(@x, @y);
+    .translate(@var-x, @var-y) {
+        @var: translate(@var-x, @var-y);
+        #transform > .transform(@var, @var);
+    }
+    
+    // @methode: .translateX
+    // @usage: #transform > .translateX(20px);
+    
+    .translateX(@var-x) {
+        @var: translateX(@var-x);
+        #transform > .transform(@var, @var);
+    }
+    
+    // @methode: .translateY
+    // @usage: #transform > .translateY(20px);
+    
+    .translateY(@var-y) {
+        @var: translateX(@var-y);
         #transform > .transform(@var, @var);
     }
     
     // @methode: .translate3d
     // @usage: #transform > .translate3d(20px, 10px, 30px);
     
-    .translate3d(@x, @y, @z) {
-        @var: translate3d(@x, @y, @z);
+    .translate3d(@var-x, @var-y, @var-z) {
+        @var: translate3d(@var-x, @var-y, @var-z);
         #transform > .transform(@var, @var);
     }
     
     // @methode: .scale
     // @usage: #transform > .scale(0.5);
     
-    .scale(@ratio) {
-        @var: scale(@ratio);
+    .scale(@var-x, @var-y: false) {
+        .inseption(@var, @var-1) when (@var-1 = false) {
+            @var-2: scale(@var);
+            #transform > .transform(@var-2, @var-2);
+        }
+        .inseption(@var, @var-1) when not (@var-1 = false) {
+            @var-2: scale(@var, @var-1);
+            #transform > .transform(@var-2, @var-2);
+        }
+        .inseption(@var-x, @var-y);
+    }
+    
+    // @methode: .scaleX
+    // @usage: #transform > .scaleX(0.5);
+    
+    .scaleX(@var-ratio) {
+        @var: scaleX(@var-ratio);
+        #transform > .transform(@var, @var);
+    }
+    
+    // @methode: .scaleY
+    // @usage: #transform > .scaleY(0.5);
+    
+    .scaleY(@var-ratio) {
+        @var: scaleY(@var-ratio);
         #transform > .transform(@var, @var);
     }
     
     // @methode: .skew
     // @usage: #transform > .skew(35deg, 0deg);
     
-    .skew(@x-deg, @y-deg) {
-        @var-webkit: skew(@x-deg, @y-deg);
-        @var-ms: skewX(@x-deg) skewY(@y-deg);
-        #transform > .transform(@var-webkit, @var-ms);
-        -webkit-backface-visibility: hidden;
+    .skew(@var-x, @var-y: false) {
+        .inseption(@var, @var-1) when (@var-1 = false) {
+            @var-webkit: skew(@var);
+            @var-ms: skewX(@var) skewY(@var);
+            #transform > .transform(@var-webkit, @var-ms);
+        }
+        .inseption(@var, @var-1) when not (@var-1 = false) {
+            @var-webkit: skew(@var, @var-1);
+            @var-ms: skewX(@var) skewY(@var-1);
+            #transform > .transform(@var-webkit, @var-ms);
+        }
+        .inseption(@var-x, @var-y);
+        #base > .backface-visibility(hidden);
+    }
+    
+    // @methode: .skewX
+    // @usage: #transform > .skewX(35deg);
+    
+    .skewX(@var-deg) {
+        @var: skewX(@var-deg);
+        #transform > .transform(@var, @var);
+    }
+    
+    // @methode: .skewY
+    // @usage: #transform > .skewY(35deg);
+    
+    .skewY(@var-deg) {
+        @var: skewY(@var-deg);
+        #transform > .transform(@var, @var);
     }
     
     // @methode: .rotate
     // @usage: #transform > .rotate(35deg);
     
-    .rotate(@deg) {
-        @var: rotate(@deg);
+    .rotate(@var-deg) {
+        @var: rotate(@var-deg);
         #transform > .transform(@var, @var);
+    }
+    
+    // @methode: .rotate3d
+    // @usage: #transform > .rotate3d(35deg, 15deg, 10deg);
+    
+    .rotate3d(@var-x, @var-y: 0, @var-z: 0) {
+        @var: rotateX(@var-x) rotateY(@var-y) rotateZ(@var-z);
+        #transform > .transform(@var, @var);
+        #transform > .style(preserve-3d);
+    }
+    
+    // @methode: .style
+    // @usage: #transform > .style(preserve-3d);
+    
+    .style(@var) {
+        -webkit-transform-style: @var;
+           -moz-transform-style: @var;
+            -ms-transform-style: @var;
+             -o-transform-style: @var;
+                transform-style: @var;
     }
 }

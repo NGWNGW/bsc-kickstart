@@ -8,6 +8,7 @@
 // #box > .align(center);
 // #box > .direction(reverse);
 // #box > .flex(1);
+// #box > .lines(single);
 // #box > .order(3);
 // #box > .ordinal(3);
 // #box > .orient(horizontal);
@@ -82,6 +83,17 @@
            -moz-box-flex: @var;
                 -ms-flex: @var;
                 box-flex: @var;
+    }
+    
+    // @methode: .lines
+    // @usage: #box > .lines(single); single|multiple
+    
+    .lines(@var: single) {
+        -webkit-box-lines: @var;
+           -moz-box-lines: @var;
+            -ms-box-lines: @var;
+             -o-box-lines: @var;
+                box-lines: @var;
     }
     
     // @methode: .order
