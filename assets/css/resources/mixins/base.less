@@ -27,14 +27,17 @@
     // @methode: .body
     // @usage: #base > .body(#fff, #444, @base-font-family);
     
-    .body(@var-body-background: #fff, @var-color: #333, @var-font-family: sans-serif) {
+    .body(@var-body-background: #fff, @var-color: #333, @var-font-family: sans-serif, @var-smoothing: false) {
+        .inseption(@var) when (@var = true) {
+            #font > .smoothing();
+        }
         #unset > .distances();
         #size > .square(100%);
         #background > .background(@var-body-background);
         color: @var-color;
         font-family: @var-font-family;
         #base > .backface-visibility(hidden); // http://bit.ly/NEdoDq
-        #font > .smoothing();
+        .inseption(@var-smoothing);
     }
     
     // @methode: .link
