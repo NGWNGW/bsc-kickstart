@@ -3,6 +3,9 @@
 ### 3.0.rc-2
 
 * update bsc-resources to v3.0.rc-2
+* add new entypo font pack
+* update html to h5bp 4.3
+* update less.min.js to 1.4.2
 
 ### 3.0.rc-1
 
