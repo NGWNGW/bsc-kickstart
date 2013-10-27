@@ -14,7 +14,12 @@
 }
 
 // ----------------------------------------------------- ~ author's custom styles
-#base > .html-body(#fafafa, #333, @sans-font-family);
+html {
+    #base > .html();
+}
+body {
+    #base > .body(#fff, #333, @sans-font-family);
+}
 #page {
     #base > .sticky-footer(100px, 500px, 40px);
 }
@@ -29,23 +34,3 @@ section {
 }
 footer {
 }
-
-// ----------------------------------------------------- ~ buttons
-// #buttons > .default-buttons();
-// #buttons > .default-buttons-group();
-
-// ----------------------------------------------------- ~ forms
-// #forms > .default-form();
-
-// ----------------------------------------------------- ~ entypo
-// #entypo > .all();
-
-// ----------------------------------------------------- ~ tables
-// #tables > .default-table();
-
-// ----------------------------------------------------- ~ typo
-// #types > .default-headlines();
-// #types > .default-paragraphs();
-// #types > .default-default-inline-elements();
-// #types > .default-default-lists();
-// #types > .default-other-elements();
