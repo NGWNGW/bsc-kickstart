@@ -6,6 +6,7 @@
 * add new entypo font pack
 * update html to h5bp 4.3
 * update less.min.js to 1.4.2
+* rename headline in readme.md
 
 ### 3.0.rc-1
 
