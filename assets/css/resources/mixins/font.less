@@ -5,6 +5,7 @@
 // ----------------------------------------------------- ~ font
 // #font > .font(ubuntu, ~"../fonts/ubuntu", ubuntu-filename);
 // #font > .font-face(entypo, ~"../fonts/entypo", entypo-filename, 400, normal, false, ie9-skip-eot);
+// #font > .size(16px);
 // #font > .shorthand(12px, normal, 1.4em);
 // #font > .smoothing();
 
@@ -16,7 +17,7 @@
     // @usage: #font > .face(ubuntu, ~"../fonts/ubuntu", ubuntu-filename);
     // @usage: #font > .face(entypo, ~"../fonts/entypo", entypo-filename, 400, normal, false, ie9-skip-eot);
     
-    .face(@var-font-name, @var-font-path, @var-font-file-name, @var-font-weight: normal, @var-font-style: normal, @var-include-svg: false, @var-format: embedded-opentype) {
+    .face(@var-font-name, @var-font-path, @var-font-file-name, @var-font-weight: @base-font-weight, @var-font-style: normal, @var-include-svg: false, @var-format: embedded-opentype) {
         .inception(@var, @var-1, @var-2, @var-3, @var-4) when not (@var-3 = false) {
             src: url('@{var-1}/@{var-2}.eot');
             src: url('@{var-1}/@{var-2}.eot?#iefix') format('@{var-4}'),
@@ -46,11 +47,35 @@
         #font > .face(@var-font-name, @var-font-path, @var-font-file-name, @var-font-weight, @var-font-style, @var-include-svg, @var-format);
     }
     
+    // @methode: .size
+    // @usage: #font > .size(16px); // em|px|%
+    
+    .size(@var-size: @base-font-size, @var-base-size: 16px) {
+        .inception(@var, @var-1) when not (ispercentage(@var)) and not (isem(@var)) {
+            @var-size: unit(@var);
+            @var-base-size: unit(@var-1);
+            @var-rem: (@var-size / @var-base-size);
+            font-size: ~"@{var-size}px"; 
+            font-size: ~"@{var-rem}rem";
+        }
+        .inception(@var, @var-1) when (isem(@var)) {
+            @var-size: unit(@var);
+            @var-base-size: unit(@var-1);
+            @var-px: (@var-size * @var-base-size);
+            font-size: ~"@{var-px}px"; 
+            font-size: ~"@{var-size}rem";
+        }
+        .inception(@var, @var-1) when (ispercentage(@var)) {
+            font-size: @var; 
+        }
+        .inception(@var-size, @var-base-size);
+    }
+    
     // @methode: .shorthand
     // @usage: #font > .shorthand(12px, normal, 120%);
     
     .shorthand(@var-size: 12px, @var-weight: normal, @var-line-height: 120%) {
-        font-size: @var-size;
+        #font > .size(@var-size);
         font-weight: @var-weight;
         line-height: @var-line-height;
     }
