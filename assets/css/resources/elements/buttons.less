@@ -3,16 +3,16 @@
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ buttons
-// #buttons > .default-buttons();
-// #buttons > .default-buttons-group();
+// #buttons > .buttons();
+// #buttons > .buttons-group();
 
 #buttons {
-    .default-buttons() {
+    .buttons() {
         .button {
-            #button > .base(13px, normal, sans-serif, 0.5em 1em, 0);
+            #button > .base();
             #button > .color(#333, #fff, #fff);
             #button > .border(1px solid #d4d4d4, 1px solid #3072b3, 1px solid #2a65a0, 0.2em);
-            #button > .background(#f4f4f4, #599bdc, #3072b3, #ececec, #3072b3, #599bdc);
+            #button > .background-gradient(#f4f4f4, #599bdc, #3072b3, #ececec, #3072b3, #599bdc);
             
             &.primary {
                 font-weight: bold;
@@ -20,7 +20,7 @@
             &.danger {
                 #button > .color(#900, #fff, #fff);
                 #button > .border(1px solid #d4d4d4, 1px solid #b53f3a, 1px solid #a0302a, 0.2em);
-                #button > .background (#f4f4f4, #dc5f59, #b33630, #ececec, #b33630, #dc5f59);
+                #button > .background-gradient (#f4f4f4, #dc5f59, #b33630, #ececec, #b33630, #dc5f59);
             }
             &.pill {
                 #border > .radius(50em);
@@ -58,7 +58,7 @@
             }
         }
     }
-    .default-buttons-group() {
+    .buttons-group() {
         .button-group {
             #unset > .list();
             #box > .display(inline-block);

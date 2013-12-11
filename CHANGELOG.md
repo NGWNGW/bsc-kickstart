@@ -1,5 +1,9 @@
 ## Basecondition Kickstart Changelog
 
+### 3.1
+
+* update bsc-resources to v3.1
+
 ### 3.0.rc-3
 
 * update Modernizr to v.2.7.0

@@ -1,4 +1,4 @@
-// basecondition ~ less-framework ~ v3.0
+// basecondition ~ less-framework ~ v3.1
 // copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
@@ -9,6 +9,10 @@
 // #base > .sticky-footer(200px, 500px, 40px, main, footer);
 // #base > .appearance(button);
 // #base > .backface-visibility(hidden);
+
+// @helper methode: ../elements/helper.less
+// @usage: .appearance(button); // normal|icon|window|button|menu|field
+// @usage: .backface-visibility(hidden); // visible|hidden
 
 // @namespace: #base
 
@@ -27,16 +31,18 @@
     // @methode: .body
     // @usage: #base > .body(#fff, #444, @base-font-family);
     
-    .body(@var-body-background: #fff, @var-color: #333, @var-font-family: sans-serif, @var-smoothing: false) {
+    .body(@var-body-background: #fff, @var-color: #333, @var-font-family: sans-serif, @var-smoothing: false, @backface-visibility: hidden) {
         .inseption(@var) when (@var = true) {
             #font > .smoothing();
+        }
+        .inseption(@var) when (@var = hidden) {
+            #base > .backface-visibility(hidden); // http://bit.ly/NEdoDq
         }
         #unset > .distances();
         #size > .square(100%);
         #background > .background(@var-body-background);
         color: @var-color;
         font-family: @var-font-family;
-        #base > .backface-visibility(hidden); // http://bit.ly/NEdoDq
         .inseption(@var-smoothing);
     }
     

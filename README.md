@@ -1,4 +1,4 @@
-## BSC-Kickstart ~ Basecondition v3.0
+## BSC-Kickstart ~ Basecondition v3.1
 
 
 #### What is Basecondition?

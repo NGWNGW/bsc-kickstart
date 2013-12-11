@@ -1,4 +1,4 @@
-// basecondition ~ less-framework ~ v3.0
+// basecondition ~ less-framework ~ v3.1
 // copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
@@ -7,6 +7,10 @@
 //  #base > .center-list();
 //  #base > .pointer();
 //  .center();
+
+// @helper methode: ../../elements/helper.less
+// @usage: .center();
+// @usage: .center-list();
 
 // @namespace: #base
 
@@ -44,5 +48,39 @@
     
     .pointer() {
         cursor: pointer;
+    }
+    
+    // @methode: .seo-helper
+    // @usage: #base > .seo-helper();
+    
+    .seo-helper() {
+        img:not([alt]),
+        img[alt=""],
+        img[alt^=" "],
+        a[href=""],
+        a[href^=" "],
+        a[rel*="nofollow"] {
+            outline: 2px solid red !important;
+            outline-offset: 3px !important;
+        }
+        head,
+        title:empty,
+        link,
+        meta {
+            #box > .display(block);
+        }
+        title:empty:before {
+            content: "You've left the <title> empty!"
+        }
+        link:before {
+            content: "You don't have a <title>!"
+        }
+        title ~ link {
+            #box > .display(none);
+        }
+        meta[name="description"][content=""]:before,
+        meta[name="description"][content=" "]:before {
+            content: "You've left description empty!";
+        }
     }
 }
