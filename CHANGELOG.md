@@ -4,6 +4,8 @@
 
 * remove less.js, remove index-less.html
 * add Options +FollowSymLinks +ExecCGI
+* remove base-factors
+* update element-mixins add factors
 
 ### 3.1
 
