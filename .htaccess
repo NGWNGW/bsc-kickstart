@@ -1,3 +1,5 @@
+Options +FollowSymLinks +ExecCGI
+
 RewriteEngine On
 RewriteRule ^(.*.bsc.css)$ bsc-unit/?f=$1&%{QUERY_STRING} [T=text/css]
 RewriteRule ^(.*.cc.css)$  bsc-unit/?f=$1&%{QUERY_STRING} [T=text/css]

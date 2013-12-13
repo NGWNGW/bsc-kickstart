@@ -3,6 +3,7 @@
 ### 3.1.rc-1
 
 * remove less.js, remove index-less.html
+* add Options +FollowSymLinks +ExecCGI
 
 ### 3.1
 
