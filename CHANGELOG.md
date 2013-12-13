@@ -1,5 +1,9 @@
 ## Basecondition Kickstart Changelog
 
+### 3.1.rc-1
+
+* remove less.js, remove index-less.html
+
 ### 3.1
 
 * update bsc-resources to v3.1
