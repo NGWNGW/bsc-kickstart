@@ -5,7 +5,7 @@
 // ----------------------------------------------------- ~ form
 // #form > .placeholder(#ccc);
 // #form > .shorthand(12px, normal, 1.4em);
-// #form > .input();
+// #form > .input(13px, 1.4em, 20px, ~"1px solid #ddd", @base-form-input-shadow, 2px, 100%, 0.2, 0.4, 0.75);
 // #form > .input-focus(#ccc);
 
 // @var-namespace: #font
@@ -44,7 +44,7 @@
     }
     
     // @methode: .input
-    // @usage: #form > .input();
+    // @usage: #form > .input(13px, 1.4em, 20px, ~"1px solid #ddd", @base-form-input-shadow, 2px, 100%, 0.2, 0.4, 0.75);
     
     .input(@var-size: @base-font-size, @var-line-height: @base-line-height, @var-distance: @base-distance, @var-border: @base-form-input-border, @var-shadow: @base-form-input-shadow, @var-radius: @base-form-input-radius, @var-width: 100%, @var-padding-top-bottom-factor: 0.2, @var-padding-left-right-factor: 0.4, @var-margin-bottom-factor: 0.75) {
         #box > .display(inline-block);
@@ -61,25 +61,33 @@
     }
     
     // @methode: .input-color
-    // @usage: #form > .input-color();
-    .input-color() {
-        
+    // @usage: #form > .input-color(#888);
+    .input-color(@var-color) {
+        color: @var-color;
     }
     
-    // @methode: .input-hover
-    // @usage: #form > .input-hover();
-    .input-hover() {
-        &:hover {
-            
+    // @methode: .input-focus-color
+    // @usage: #form > .input-focus-color(#000);
+    .input-focus-color(@var-color) {
+        &:focus {
+            color: @var-color;
+        }
+    }
+    
+    // @methode: .input-focus-border
+    // @usage: #form > .input-focus-border(#ccc);
+    
+    .input-focus-border(@var-border: @base-form-input-border-focus) {
+        &:focus {
+            border-color: @var-border;
         }
     }
     
     // @methode: .input-focus
-    // @usage: #form > .input-focus(#ccc);
+    // @usage: #form > .input-focus(#000, #ccc);
     
-    .input-focus(@var-border-focus: @base-form-input-border-focus) {
-        &:focus {
-            border-color: @var-border-focus;
-        }
+    .input-focus(@var-color: #000, @var-border: @base-form-input-border-focus) {
+        #form > .input-focus-border(@var-border);
+        #form > .input-focus-color(@var-color);
     }
 }
