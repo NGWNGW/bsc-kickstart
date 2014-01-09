@@ -4,6 +4,7 @@
 
 * add new entypo font
 * add resources 3.1.rc-2
+* remove conditional comments
 
 ### 3.1.rc-1
 
