@@ -1,5 +1,5 @@
-// basecondition ~ less-framework ~ v3.1
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
+// basecondition ~ less-framework ~ v3.2
+// copyright 2014 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ transform
@@ -31,21 +31,21 @@
     // @usage: #transform > .transform(~"scale(1) rotate(360deg) translate(20px, 0px) skew(320deg, 0deg)");
     
     .transform(@var-webkit, @var-ms: false) {
-        .inseption(@var, @var-1) when (@var-1 = false) {
+        .inception(@var, @var-1) when (@var-1 = false) {
             -webkit-transform: @var;
                -moz-transform: @var;
                 -ms-transform: @var;
                  -o-transform: @var;
                     transform: @var;
         }
-        .inseption(@var, @var-1) when not (@var-1 = false) {
+        .inception(@var, @var-1) when not (@var-1 = false) {
             -webkit-transform: @var;
                -moz-transform: @var;
                 -ms-transform: @var-1;
                  -o-transform: @var;
                     transform: @var;
         }
-        .inseption(@var-webkit, @var-ms);
+        .inception(@var-webkit, @var-ms);
     }
     
     // @methode: .origin
@@ -95,15 +95,15 @@
     // @usage: #transform > .scale(0.5);
     
     .scale(@var-x, @var-y: false) {
-        .inseption(@var, @var-1) when (@var-1 = false) {
+        .inception(@var, @var-1) when (@var-1 = false) {
             @var-2: scale(@var);
             #transform > .transform(@var-2, @var-2);
         }
-        .inseption(@var, @var-1) when not (@var-1 = false) {
+        .inception(@var, @var-1) when not (@var-1 = false) {
             @var-2: scale(@var, @var-1);
             #transform > .transform(@var-2, @var-2);
         }
-        .inseption(@var-x, @var-y);
+        .inception(@var-x, @var-y);
     }
     
     // @methode: .scaleX
@@ -126,17 +126,17 @@
     // @usage: #transform > .skew(35deg, 0deg);
     
     .skew(@var-x, @var-y: false) {
-        .inseption(@var, @var-1) when (@var-1 = false) {
+        .inception(@var, @var-1) when (@var-1 = false) {
             @var-webkit: skew(@var);
             @var-ms: skewX(@var) skewY(@var);
             #transform > .transform(@var-webkit, @var-ms);
         }
-        .inseption(@var, @var-1) when not (@var-1 = false) {
+        .inception(@var, @var-1) when not (@var-1 = false) {
             @var-webkit: skew(@var, @var-1);
             @var-ms: skewX(@var) skewY(@var-1);
             #transform > .transform(@var-webkit, @var-ms);
         }
-        .inseption(@var-x, @var-y);
+        .inception(@var-x, @var-y);
         #base > .backface-visibility(hidden);
     }
     

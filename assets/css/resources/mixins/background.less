@@ -1,5 +1,5 @@
-// basecondition ~ less-framework ~ v3.1
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
+// basecondition ~ less-framework ~ v3.2
+// copyright 2014 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ background
@@ -7,9 +7,12 @@
 // #background > .background(~"transparent url(../img/logo.png) no-repeat center center");
 // #background > .background(#f57e20, 0.5);
 // #background > .background(#f57e20);
-// #background > .clip(border-box);
-// #background > .origin(padding-box);
-// #background > .size(contain);
+// #background > .repeat(fixed); // repeat-x|repeat-y|no-repeat|repeat
+// #background > .position(~"left top"); // percentage|length|top|center|left|bottom
+// #background > .attachment(fixed); // scroll|fixed|local
+// #background > .clip(border-box); // padding-box|border-box|content-box
+// #background > .origin(padding-box); // padding-box|border-box|content-box
+// #background > .size(contain); // length|percentage|cover|contain
 // #background > .size(100px, 20%);
 
 // @helper methode: ../elements/helper.less
@@ -27,62 +30,158 @@
     // @usage: #background > .background(#f57e20, 0.5);
     // @usage: #background > .background(#f57e20);
     
-    .background(@var-color: transparent, @var-image: false, @var-repeat: repeat, @var-position: left top, @var-attachment: false) {
-        .inception(@var, @var-1, @var-2, @var-3) when not (@var-1 = false) and not (isnumber(@var-1)) {
-            background: @var url(@var-1) @var-2 @var-3;
-        }
-        .inception(@var, @var-1, @var-2, @var-3) when (@var-1 = false) {
+    .background(@var-color: transparent, @var-image: false, @var-repeat: false, @var-position: false, @var-attachment: false) {
+        .inception(@var, @var-image) when (isstring(@var)) and (@var-image = false) {
             background: @var;
         }
-        .inception(@var, @var-1, @var-2, @var-3) when not (@var-1 = false) and (isnumber(@var-1)) {
-            #translucent > .background(@var, @var-1);
+        .inception(@var-color, @var-image) when (@var-color = transparent) {
+            background: @var-color;
         }
-        .attachment-inception(@var) when not (@var = false) {
+        .inception(@var-color, @var-image) when (iscolor(@var-color)) and not (isnumber(@var-image)) {
+            background: @var-color;
+        }
+        .inception(@var-color, @var-image) when not (@var-image = false) and not (isnumber(@var-image)) {
+            background-image: url(@var-image);
+        }
+        .translucent-inception(@var-color, @var-opacity) when (iscolor(@var-color)) and not (@var-opacity = false) and (isnumber(@var-opacity)) {
+            #translucent > .background(@var-color, @var-opacity);
+        }
+        .repeat-inception(@var-repeat) when not (@var-repeat = false) {
+            #background > .repeat(@var-repeat);
+        }
+        .position-inception(@var-position) when not (@var-position = false) {
+            #background > .position(~"@{var-position}");
+        }
+        .attachment-inception(@var-attachment) when not (@var-attachment = false) {
+            #background > .attachment(@var-attachment);
+        }
+        .inception(@var-color, @var-image);
+        .translucent-inception(@var-color, @var-image);
+        .repeat-inception(@var-repeat);
+        .position-inception(@var-position);
+        .attachment-inception(@var-attachment);
+    }
+    
+    // @methode: .repeat
+    // @usage: #background > .repeat(fixed); // repeat-x|repeat-y|no-repeat|repeat
+    
+    .repeat(@var: repeat) {
+        .inception(@var) {
+            background-repeat: @var;
+        }
+        .inception-call(@var) when (@var = repeat-x) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = repeat-y) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = no-repeat) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = repeat) {
+            .inception(@var);
+        }
+        .inception-call(@var);
+    }
+    
+    // @methode: .position
+    // @usage: #background > .position(~"left top"); // percentage|length|top|center|left|bottom
+    // @usage: #background > .position(left, top);
+    // @usage: #background > .position(50%, 50%);
+    
+    .position(@var-x: left, @var-y: top) {
+        .inception(@var) {
+            background-position: @var;
+        }
+        .inception-call(@var, @var-y) when (isstring(@var)) {
+            .inception(@var);
+        }
+        .inception-call(@var-x, @var-y) when (isnumber(@var-x)) and (isnumber(@var-y)) {
+            .inception(@var-x @var-y);
+        }
+        .inception-call(@var-x, @var-y);
+    }
+    
+    // @methode: .attachment
+    // @usage: #background > .attachment(fixed); // scroll|fixed|local
+    
+    .attachment(@var: scroll) {
+        .inception(@var) {
             background-attachment: @var;
         }
-        .inception(@var-color, @var-image, @var-repeat, @var-position);
-        .attachment-inception(@var-attachment);
+        .inception-call(@var) when (@var = scroll) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = fixed) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = local) {
+            .inception(@var);
+        }
+        .inception-call(@var);
     }
     
     // @methode: .clip
     // @usage: #background > .clip(border-box); // border-box|padding-box|content-box
     
     .clip(@var: border-box) {
+        .inception(@var) {
         -webkit-background-clip: @var;
            -moz-background-clip: @var;
              -o-background-clip: @var;
                 background-clip: @var;
+        }
+        .inception-call(@var) when (@var = border-box) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = padding-box) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = content-box) {
+            .inception(@var);
+        }
+        .inception-call(@var);
     }
     
     // @methode: .origin
     // @usage: #background > .origin(padding-box); // padding-box|border-box|content-box
     
     .origin(@var: padding-box) {
+        .inception(@var) {
         -webkit-background-origin: @var;
            -moz-background-origin: @var;
              -o-background-origin: @var;
                 background-origin: @var;
+        }
+        .inception-call(@var) when (@var = border-box) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = padding-box) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = content-box) {
+            .inception(@var);
+        }
+        .inception-call(@var);
     }
     
     // @methode: .size
     // @usage #background > .size(100px, 100px); // length|percentage|cover|contain
     // @usage #background > .size(contain);
     
-    .size(@var-or-width: contain, @var-height: false) {
-        .size-inception(@var) {
+    .size(@var-width: contain, @var-height: false) {
+        .inception(@var) {
             -webkit-background-size: @var;
                -moz-background-size: @var;
                  -o-background-size: @var;
                     background-size: @var;
         }
-        .inception(@var, @var-1) when not (isnumber(@var)) and (@var-1 = false) {
-            @var-2: @var;
-            .size-inception(@var-2);
+        .inception-call(@var, @var-height) when not (isnumber(@var)) and (@var-height = false) {
+            .inception(@var);
         }
-        .inception(@var, @var-1) when (isnumber(@var)) and (isnumber(@var)) {
-            @var-2: @var @var-1;
-            .size-inception(@var-2);
+        .inception-call(@var-width, @var-height) when (isnumber(@var-width)) and (isnumber(@var-height)) {
+            .inception(@var-width @var-height);
         }
-        .inception(@var-or-width, @var-height);
+        .inception-call(@var-width, @var-height);
     }
 }

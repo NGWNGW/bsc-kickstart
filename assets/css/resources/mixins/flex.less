@@ -1,0 +1,329 @@
+// basecondition ~ less-framework ~ v3.2
+// copyright 2014 ~ Joachim Doerr ~ hello@basecondition.com
+// licensed under MIT or GPLv3 ~ git.io/OJYZgw
+
+// ----------------------------------------------------- ~ flex
+// #flex > .align-content(flex-start); // flex-start|flex-end|center|space-between|space-around|stretch
+// #flex > .align-items(flex-start); // flex-start|flex-end|center|baseline|stretch
+// #flex > .align-self(auto); // auto|flex-start|flex-end|center|baseline|stretch
+// #flex > .display(flex); // flex|inline-flex
+// #flex > .flex(~"2 100px"); // none|[ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+// #flex > .flex(2);
+// #flex > .basis(200px); // <length>|auto 
+// #flex > .direction(row); // row|row-reverse|column|column-reverse
+// #flex > .wrap(nowrap); // nowrap|wrap|wrap-reverse
+// #flex > .flow(nowrap); // <'flex-direction'>|<'flex-wrap'>
+// #flex > .order(1); // <'integer'>
+// #flex > .ordinal(1); // <'integer'>
+// #flex > .grow(1); // <'number'>
+// #flex > .shrink(1); // <'number'>
+// #flex > .content(flex-start); // flex-start|flex-end|center|space-between|space-around|stretch
+
+// @namespace: #flex
+
+#flex {
+    
+    // @methode: .align-content
+    // @usage: #flex > .align-content(flex-start); // flex-start|flex-end|center|space-between|space-around|stretch
+    
+    .align-content(@var: stretch) {
+        .inception(@var, @signal) when (@signal = true)  {
+            -webkit-align-content: @var;
+               -moz-align-content: @var;
+               -ms-flex-line-pack: @var;
+                    align-content: @var;
+        }
+        .inception(@var, @signal) when (@var = flex-start)  {
+            -webkit-align-content: @var;
+               -moz-align-content: @var;
+               -ms-flex-line-pack: start;
+                    align-content: @var;
+        }
+        .inception(@var, @signal) when (@var = flex-end)  {
+            -webkit-align-content: @var;
+               -moz-align-content: @var;
+               -ms-flex-line-pack: end;
+                    align-content: @var;
+        }
+        .inception(@var, @signal) when (@var = space-between)  {
+            -webkit-align-content: @var;
+               -moz-align-content: @var;
+               -ms-flex-line-pack: justify;
+                    align-content: @var;
+        }
+        .inception(@var, @signal) when (@var = space-around)  {
+            -webkit-align-content: @var;
+               -moz-align-content: @var;
+               -ms-flex-line-pack: distribute;
+                    align-content: @var;
+        }
+        .inception-call(@var) when (@var = center) {
+            .inception(@var, true);
+        }
+        .inception-call(@var) when (@var = stretch) {
+            .inception(@var, true);
+        }
+        .inception-call(@var);
+        .inception(@var, false);
+    }
+    
+    // @methode: .align-items
+    // @usage: #flex > .align-items(flex-start); // flex-start|flex-end|center|baseline|stretch
+    
+    .align-items(@var: stretch) {
+        .inception(@var, @signal) when (@signal = true)  {
+             -webkit-box-align: @var;
+                -moz-box-align: @var;
+           -webkit-align-items: @var;
+                -ms-flex-align: @var;
+                   align-items: @var;
+        }
+        .inception(@var, @signal) when (@var = flex-start)  {
+             -webkit-box-align: @var;
+                -moz-box-align: start;
+           -webkit-align-items: start;
+                -ms-flex-align: @var;
+                   align-items: @var;
+        }
+        .inception(@var, @signal) when (@var = flex-end)  {
+             -webkit-box-align: @var;
+                -moz-box-align: end;
+           -webkit-align-items: end;
+                -ms-flex-align: @var;
+                   align-items: @var;
+        }
+        .inception-call(@var) when (@var = center) {
+            .inception(@var, true);
+        }
+        .inception-call(@var) when (@var = baseline) {
+            .inception(@var, true);
+        }
+        .inception-call(@var) when (@var = stretch) {
+            .inception(@var, true);
+        }
+        .inception-call(@var);
+        .inception(@var, false);
+    }
+    
+    // @methode: .align-self
+    // @usage: #flex > .align-self(auto); // auto|flex-start|flex-end|center|baseline|stretch
+    
+    .align-self(@var: auto) {
+        .inception(@var, @signal) when (@signal = true) {
+            -webkit-align-self: @var;
+                -ms-align-self: @var;
+                    align-self: @var;
+        }
+        .inception(@var, @signal) when (@var = flex-start)  {
+            -webkit-align-self: @var;
+                -ms-align-self: start;
+                    align-self: @var;
+        }
+        .inception(@var, @signal) when (@var = flex-end)  {
+            -webkit-align-self: @var;
+                -ms-align-self: end;
+                    align-self: @var;
+        }
+        .inception-call(@var) when (@var = auto) {
+            .inception(@var, true);
+        }
+        .inception-call(@var) when (@var = center) {
+            .inception(@var, true);
+        }
+        .inception-call(@var) when (@var = baseline) {
+            .inception(@var, true);
+        }
+        .inception-call(@var) when (@var = stretch) {
+            .inception(@var, true);
+        }
+        .inception-call(@var);
+        .inception(@var, false);
+    }
+    
+    // @methode: .display
+    // @usage: #flex > .display(flex); // flex|inline-flex
+    
+    .display(@var: flex) {
+        .inception(@var, @signal) when (@signal = true)  {
+            display: ~"-webkit-@{var}";
+            display: ~"-moz-@{var}";
+            display: ~"-ms-@{var}box";
+            display: ~"-ms-@{var}";
+            display: @var;
+        }
+        .inception-call(@var) when (@var = flex) {
+            .inception(@var, true);
+        }
+        .inception-call(@var) when (@var = inline-flex) {
+            .inception(@var, true);
+        }
+        .inception-call(@var);
+    }
+    
+    // @methode: .flex
+    // @usage: #flex > .flex(~"2 100px"); // none|[ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+    // @usage: #flex > .flex(2);
+    
+    .flex(@var) {
+        #box > .flex(@var);
+    }
+    
+    // @methode: .basis
+    // @usage: #flex > .basis(200px); // <length>|auto 
+    
+    .basis(@var: auto) {
+        .inception(@var) {
+            -webkit-flex-basis: @var;
+               -moz-flex-basis: @var;
+                -ms-flex-basis: @var;
+                    flex-basis: @var;
+        }
+        .inception-call(@var) when (@var = auto) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (isem(@var)) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (ispixel(@var)) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (ispercentage(@var)) {
+            .inception(@var);
+        }
+        .inception-call(@var);
+    }
+    
+    // @methode: .direction
+    // @usage: #flex > .direction(row); // row|row-reverse|column|column-reverse
+    
+    .direction(@var: row) {
+        .inception(@var) {
+            -webkit-flex-direction: @var;
+               -moz-flex-direction: @var;
+                -ms-flex-direction: @var;
+                    flex-direction: @var;
+        }
+        .inception-call(@var) when (@var = row) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = row-reverse) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = column) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = column-reverse) {
+            .inception(@var);
+        }
+        .inception-call(@var);
+    }
+    
+    // @methode: .wrap
+    // @usage: #flex > .wrap(nowrap); // nowrap|wrap|wrap-reverse
+    
+    .wrap(@var: nowrap) {
+        .inception(@var) {
+            -webkit-flex-wrap: @var;
+               -moz-flex-wrap: @var;
+                -ms-flex-wrap: @var;
+                    flex-wrap: @var;
+        }
+        .inception-call(@var) when (@var = nowrap) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = wrap) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = wrap-reverse) {
+            .inception(@var);
+        }
+        .inception-call(@var);
+    }
+    
+    // @methode: .flow
+    // @usage: #flex > .flow(); // <'flex-direction'>|<'flex-wrap'>
+    
+    .flow(@var) {
+        -webkit-flex-flow: @var;
+           -moz-flex-flow: @var;
+            -ms-flex-flow: @var;
+                flex-flow: @var;
+    }
+    
+    // @methode: .order
+    // @usage: #flex > .order(1); // <'integer'>
+    
+    .order(@var: 0) {
+        .inception(@var) when (isnumber(@var)) {
+            -webkit-order: @var;
+               -moz-order: @var;
+                -ms-order: @var;
+                    order: @var;
+        }
+        .inception(@var);
+    }
+    
+    // @methode: .ordinal
+    // @usage: #flex > .ordinal(1); // <'integer'>
+    
+    .ordinal(@var) {
+        #box > .ordinal(@var);
+    }
+    
+    // @methode: .grow
+    // @usage: #flex > .grow(1); // <'number'>
+    
+    .grow(@var: 0) {
+        .inception(@var) when (isnumber(@var)) {
+            -webkit-flex-grow: @var;
+               -moz-flex-grow: @var;
+                -ms-flex-grow: @var;
+                    flex-grow: @var;
+        }
+        .inception(@var);
+    }
+    
+    // @methode: .shrink
+    // @usage: #flex > .shrink(1); // <'number'>
+    
+    .shrink(@var: 1) {
+        .inception(@var) when (isnumber(@var)) {
+            -webkit-flex-shrink: @var;
+               -moz-flex-shrink: @var;
+                -ms-flex-shrink: @var;
+                    flex-shrink: @var;
+        }
+        .inception(@var);
+    }
+    
+    // @methode: .content
+    // @usage: #flex > .content(flex-start); // flex-start|flex-end|center|space-between|space-around|stretch
+    
+    .content(@var: flex-start) {
+        .inception(@var) {
+            -webkit-justify-content: @var;
+               -moz-justify-content: @var;
+                -ms-justify-content: @var;
+                    justify-content: @var;
+        }
+        .inception-call(@var) when (@var = flex-start) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = flex-end) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = center) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = space-between) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = space-around) {
+            .inception(@var);
+        }
+        .inception-call(@var) when (@var = stretch) {
+            .inception(@var);
+        }
+        .inception-call(@var);
+    }
+}

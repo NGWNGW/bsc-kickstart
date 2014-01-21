@@ -1,5 +1,5 @@
-// basecondition ~ less-framework ~ v3.1
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
+// basecondition ~ less-framework ~ v3.2
+// copyright 2014 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ form
@@ -15,19 +15,22 @@
     // @methode: .placeholder
     // @usage: #form > .placeholder(#ccc);
     
-    .placeholder(@color: #ccc) {
-        &:-moz-placeholder {
-            color: @color;
+    .placeholder(@var) {
+        .inception(@var) when (iscolor(@var)){
+            &:-moz-placeholder {
+                color: @var;
+            }
+            &::-moz-placeholder {
+                color: @var;
+            }
+            &:-ms-input-placeholder {
+                color: @var;
+            }
+            &::-webkit-input-placeholder {
+                color: @var;
+            }
         }
-        &::-moz-placeholder {
-            color: @color;
-        }
-        &:-ms-input-placeholder {
-            color: @color;
-        }
-        &::-webkit-input-placeholder {
-            color: @color;
-        }
+        .inception(@var);
     }
     
     // @methode: .shorthand
@@ -49,6 +52,7 @@
     .input(@var-size: @base-font-size, @var-line-height: @base-line-height, @var-distance: @base-distance, @var-border: @base-form-input-border, @var-shadow: @base-form-input-shadow, @var-radius: @base-form-input-radius, @var-width: 100%, @var-padding-top-bottom-factor: 0.2, @var-padding-left-right-factor: 0.4, @var-margin-bottom-factor: 0.75) {
         #box > .display(inline-block);
         #box > .shadow(@var-shadow);
+        #box > .sizing(border-box);
         #border > .radius(@var-radius);
         font-size: @var-size;
         line-height: @var-line-height;
@@ -57,7 +61,6 @@
         padding: ceil(@var-distance * @var-padding-top-bottom-factor) ceil(@var-distance * @var-padding-left-right-factor);
         margin: 0 0 ceil(@var-distance * @var-margin-bottom-factor) 0;
         vertical-align: middle;
-        #box > .sizing(border-box);
     }
     
     // @methode: .input-color

@@ -1,5 +1,5 @@
-// basecondition ~ less-framework ~ v3.1
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
+// basecondition ~ less-framework ~ v3.2
+// copyright 2014 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ helper
@@ -15,7 +15,7 @@
 // .backface-visibility(hidden);
 // .font-size(16px);
 // .hide-text();
-// .entypo();
+// .entypo-load();
 // .seo-helper();
 
 // @direct-methode: .animation
@@ -43,7 +43,7 @@
 // @usage: .transition(~"background-color 150ms ease-in-out, border 150ms ease-in-out");
 
 .transition(@var, @type: false) {
-    #transition > .transition(@var-webkit, @var-ms);
+    #transition > .transition(@var, @type);
 
 }
 
@@ -119,12 +119,11 @@
      #visibility > .hide-text();
 }
 
-// @direct-methode: .entypo
-// @usage: .entypo();
+// @direct-methode: .entypo-load
+// @usage: .entypo-load();
 
-.entypo() {
+.entypo-load() {
     #entypo > .load();
-    #entypo > .inseption();
 }
 
 // @direct-methode: .seo-helper

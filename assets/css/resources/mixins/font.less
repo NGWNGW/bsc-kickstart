@@ -1,5 +1,5 @@
-// basecondition ~ less-framework ~ v3.1
-// copyright 2013 ~ Joachim Doerr ~ hello@var-basecondition.com
+// basecondition ~ less-framework ~ v3.2
+// copyright 2014 ~ Joachim Doerr ~ hello@var-basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ font
@@ -76,7 +76,7 @@
     // @methode: .shorthand
     // @usage: #font > .shorthand(12px, normal, 120%);
     
-    .shorthand(@var-size: 12px, @var-weight: normal, @var-line-height: 120%) {
+    .shorthand(@var-size: @base-font-size, @var-weight: @base-font-weight, @var-line-height: @base-line-height) {
         .font-size(@var-size);
         font-weight: @var-weight;
         line-height: @var-line-height;
@@ -86,14 +86,14 @@
     // @usage: #font > .smoothing(off); off|antialiased|subpixel-antialiased
     
     .smoothing(@var: subpixel-antialiased) {
-        .inseption(@var) when not (@var = subpixel-antialiased) {
+        .inception(@var) when not (@var = subpixel-antialiased) {
              -webkit-font-smoothing: @var;
             -moz-osx-font-smoothing: grayscale;
         }
-        .inseption(@var) when (@var = subpixel-antialiased) {
+        .inception(@var) when (@var = subpixel-antialiased) {
              -webkit-font-smoothing: @var;
             -moz-osx-font-smoothing: auto;
         }
-        .inseption(@var);
+        .inception(@var);
     }
 }

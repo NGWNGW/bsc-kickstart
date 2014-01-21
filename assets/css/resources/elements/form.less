@@ -1,16 +1,16 @@
-// basecondition ~ less-framework ~ v3.1
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
+// basecondition ~ less-framework ~ v3.2
+// copyright 2014 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ form
 // #form > .base(12px, 1.4em, 20px, 0.75, 14px, #444, none, bold);
-// #form > .labels(bold, 20px, 0.25);
-// #form > .inputs(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
-// #form > .textareas(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px)
+// #form > .label(bold, 20px, 0.25);
+// #form > .input(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
+// #form > .textarea(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px)
 // #form > .checkboxes(20px);
-// #form > .radios(20px);
-// #form > .selects(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
-// #form > .buttons(20px);
+// #form > .radio(20px);
+// #form > .select(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
+// #form > .button(20px);
 
 // @namespace: #form
 
@@ -21,13 +21,13 @@
     
     .defaults() {
         #form > .base();
-        #form > .labels();
-        #form > .textareas();
-        #form > .inputs();
-        #form > .selects();
+        #form > .label();
+        #form > .textarea();
+        #form > .input();
+        #form > .select();
         #form > .checkboxes();
-        #form > .radios();
-        #form > .buttons();
+        #form > .radio();
+        #form > .button();
     }
     
     // @methode: .form()
@@ -78,10 +78,10 @@
         #form > .form(@var-size, @var-line-height, @var-distance, @var-distance-factor, @var-legend-size, @var-legend-color, @var-legend-border, @var-label-weight);
     }
     
-    // @methode: .labels
-    // @usage: #form > .labels(bold, 20px, 0.25);
+    // @methode: .label
+    // @usage: #form > .label(bold, 20px, 0.25);
     
-    .labels(@var-weight: @base-font-label-weight, @var-distance: @base-distance, @var-factor: 0.25) {
+    .label(@var-weight: @base-font-label-weight, @var-distance: @base-distance, @var-factor: 0.25) {
         label {
             #box > .display(block);
             margin-bottom: ceil(@var-distance * @var-factor);
@@ -89,10 +89,10 @@
         }
     }
     
-    // @methode: .inputs
-    // @usage: #form > .inputs(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
+    // @methode: .input
+    // @usage: #form > .input(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
     
-    .inputs(@var-size: @base-font-size, @var-line-height: @base-line-height, @var-distance: @base-distance, @var-border: @base-form-input-border, @var-border-focus-color: @base-form-input-border-focus, @var-shadow: @base-form-input-shadow, @var-radius: @base-form-input-radius) {
+    .input(@var-size: @base-font-size, @var-line-height: @base-line-height, @var-distance: @base-distance, @var-border: @base-form-input-border, @var-border-focus-color: @base-form-input-border-focus, @var-shadow: @base-form-input-shadow, @var-radius: @base-form-input-radius) {
         input {
             &[type="text"],
             &[type="password"],
@@ -118,10 +118,10 @@
         }
     }
     
-    // @methode: .textareas
-    // @usage: #form > .textareas(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
+    // @methode: .textarea
+    // @usage: #form > .textarea(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
     
-    .textareas(@var-size: @base-font-size, @var-line-height: @base-line-height, @var-distance: @base-distance, @var-border: @base-form-area-border, @var-border-focus-color: @base-form-area-border-focus, @var-shadow: @base-form-area-shadow, @var-radius: @base-form-area-radius) {
+    .textarea(@var-size: @base-font-size, @var-line-height: @base-line-height, @var-distance: @base-distance, @var-border: @base-form-area-border, @var-border-focus-color: @base-form-area-border-focus, @var-shadow: @base-form-area-shadow, @var-radius: @base-form-area-radius) {
         textarea {
             #form > .input(@var-size, @var-line-height, @var-distance, @var-border, @var-shadow, @var-radius, 100%, 0.2, 0.4, 0.75);
             #form > .input-focus-border(@var-border-focus-color);
@@ -142,10 +142,10 @@
         }
     }
     
-    // @methode: .radios
-    // @usage: #form > .radios(20px);
+    // @methode: .radio
+    // @usage: #form > .radio(20px);
     
-    .radios(@var-distance: @base-distance) {
+    .radio(@var-distance: @base-distance) {
         input {
             &[type="radio"]{
                 float: left;
@@ -156,20 +156,20 @@
         }
     }
     
-    // @methode: .selects
-    // @usage: #form > .selects(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
+    // @methode: .select
+    // @usage: #form > .select(12px, 1.4em, 20px, ~"1px solid #ddd", #333, @base-form-area-shadow, 3px);
     
-    .selects(@var-size: @base-font-size, @var-line-height: @base-line-height, @var-distance: @base-distance, @var-border: @base-form-select-border, @var-border-focus-color: @base-form-select-border-focus, @var-shadow: @base-form-select-shadow, @var-radius: @base-form-select-radius) {
+    .select(@var-size: @base-font-size, @var-line-height: @base-line-height, @var-distance: @base-distance, @var-border: @base-form-select-border, @var-border-focus-color: @base-form-select-border-focus, @var-shadow: @base-form-select-shadow, @var-radius: @base-form-select-radius) {
         select {
             #form > .input(@var-size, @var-line-height, @var-distance, @var-border, @var-shadow, @var-radius, 100%, 0.2, 0.4, 0.75);
             #form > .input-focus-border(@var-border-focus-color);
         }
     }
     
-    // @methode: .buttons
-    // @usage: #form > .buttons(20px);
+    // @methode: .button
+    // @usage: #form > .button(20px);
     
-    .buttons(@var-distance: @base-distance) {
+    .button(@var-distance: @base-distance) {
         .button-style() {
             #button > .base();
             #button > .border();

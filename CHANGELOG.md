@@ -1,5 +1,12 @@
 ## Basecondition Kickstart Changelog
 
+### 3.2
+
+* update bsc-resources to v3.2
+* update Modernizr to 2.7.1
+* add new favicon
+* remove favicon src
+
 ### 3.1.rc-1
 
 * add new entypo font

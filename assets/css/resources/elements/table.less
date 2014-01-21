@@ -1,27 +1,27 @@
-// basecondition ~ less-framework ~ v3.1
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
+// basecondition ~ less-framework ~ v3.2
+// copyright 2014 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
-// ----------------------------------------------------- ~ tables
-// #tables > .defaults();
-// #tables > .table(default);
-// #tables > .default-table();
-// #tables > .striped-table();
-// #tables > .bordered-table();
+// ----------------------------------------------------- ~ table
+// #table > .defaults();
+// #table > .table(default, 14px, 1.4, 20px, 0.4, 1, 1, @base-table-thead-border, @base-table-tbody-border, @base-table-tfoot-border, #fefefe, #eee);
+// #table > .default-table(14px, 1.4, 20px, 0.4, 1, 1, @base-table-thead-border, @base-table-tbody-border, @base-table-tfoot-border, #fefefe, #eee);
+// #table > .striped-table(14px, 1.4, 20px, 0.4, 1, 1, @base-table-thead-border, @base-table-tbody-border, @base-table-tfoot-border, #fefefe, #eee);
+// #table > .bordered-table(14px, 1.4, 20px, 0.4, 1, 1, @base-table-thead-border, @base-table-tbody-border, @base-table-tfoot-border, #fefefe, #eee);
 
-// @namespace: #tables
+// @namespace: #table
 
-#tables {
+#table {
     
     // @methode: .default
-    // @usage: #tables > .default();
+    // @usage: #table > .default();
     
     .default() {
-        #tables > .default-table();
+        #table > .default-table();
     }
     
     // @methode: .table
-    // @usage: #tables > .table();
+    // @usage: #table > .table(default, 14px, 1.4, 20px, 0.4, 1, 1, @base-table-thead-border, @base-table-tbody-border, @base-table-tfoot-border, #fefefe, #eee);
     
     .table(@var-table-type: default, @var-font-size: @base-font-size, @var-line-height: @base-line-height, @var-distance: @base-distance, @var-table-cell-padding-factor: 0.4, @var-distance-factor-top: 1, @var-distance-factor-bottom: 1, @var-table-thead-border: @base-table-thead-border, @var-table-tbody-border: @base-table-tbody-border, @var-table-tfoot-border: @base-table-tfoot-border, @var-table-bg: @base-table-bg, @var-table-bg-accent: @base-table-bg-accent) {
         .inception(@var, @var-1, @var-2, @var-3, @var-4, @var-5, @var-6, @var-7, @var-8, @var-9, @var-10, @var-11) when (@var = default) {
@@ -67,7 +67,7 @@
             }
         }
         .inception(@var, @var-1, @var-2, @var-3, @var-4, @var-5, @var-6, @var-7, @var-8, @var-9, @var-10, @var-11) when (@var = striped) {
-            #tables > .table(default, @var-1, @var-2, @var-3, @var-4, @var-5, @var-6, @var-7, @var-8, @var-9, @var-10, @var-11);
+            #table > .table(default, @var-1, @var-2, @var-3, @var-4, @var-5, @var-6, @var-7, @var-8, @var-9, @var-10, @var-11);
             
             table {
                 tbody {
@@ -83,7 +83,7 @@
             }
         }
         .inception(@var, @var-1, @var-2, @var-3, @var-4, @var-5, @var-6, @var-7, @var-8, @var-9, @var-10, @var-11) when (@var = bordered) {
-            #tables > .table(default, @var-1, @var-2, @var-3, @var-4, @var-5, @var-6, @var-7, @var-8, @var-9, @var-10, @var-11);
+            #table > .table(default, @var-1, @var-2, @var-3, @var-4, @var-5, @var-6, @var-7, @var-8, @var-9, @var-10, @var-11);
             
             table {
                 border: @var-8;
@@ -104,23 +104,23 @@
     }
     
     // @methode: .default-table
-    // @usage: #tables > .default-table();
+    // @usage: #table > .default-table(14px, 1.4, 20px, 0.4, 1, 1, @base-table-thead-border, @base-table-tbody-border, @base-table-tfoot-border, #fefefe, #eee);
     
     .default-table() {
-        #tables > .table(default);
+        #table > .table(default);
     }
     
     // @methode: .striped-table
-    // @usage: #tables > .striped-table();
+    // @usage: #table > .striped-table(14px, 1.4, 20px, 0.4, 1, 1, @base-table-thead-border, @base-table-tbody-border, @base-table-tfoot-border, #fefefe, #eee);
     
     .striped-table() {
-        #tables > .table(striped);
+        #table > .table(striped);
     }
     
     // @methode: .bordered-table
-    // @usage: #tables > .bordered-table();
+    // @usage: #table > .bordered-table(14px, 1.4, 20px, 0.4, 1, 1, @base-table-thead-border, @base-table-tbody-border, @base-table-tfoot-border, #fefefe, #eee);
     
     .bordered-table() {
-        #tables > .table(bordered);
+        #table > .table(bordered);
     }
 }

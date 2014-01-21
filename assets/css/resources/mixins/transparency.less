@@ -1,5 +1,5 @@
-// basecondition ~ less-framework ~ v3.1
-// copyright 2013 ~ Joachim Doerr ~ hello@basecondition.com
+// basecondition ~ less-framework ~ v3.2
+// copyright 2014 ~ Joachim Doerr ~ hello@basecondition.com
 // licensed under MIT or GPLv3 ~ git.io/OJYZgw
 
 // ----------------------------------------------------- ~ opacity
@@ -17,13 +17,16 @@
     // @methode: .opacity
     // @usage: #transparency > .opacity(0.5);
     
-    .opacity(@alpha) {
-        @msOpacity: @alpha * 100;
-        -webkit-opacity: @alpha;
-         -khtml-opacity: @alpha;
-           -moz-opacity: @alpha;
-                opacity: @alpha;
-             -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{msOpacity})";
+    .opacity(@var) {
+        .inception(@var) when (isnumber(@var)) {
+            @var-ms : @var * 100;
+            -webkit-opacity: @var;
+             -khtml-opacity: @var;
+               -moz-opacity: @var;
+                    opacity: @var;
+                 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{var-ms})";
+        }
+        .inception(@var);
     }
     
     // @methode: .background
@@ -36,7 +39,7 @@
     // @methode: .border
     // @usage: #transparency > .border(@black, 0.5);
     
-    .border(@color, @alpha) {
-        #translucent > .border(@color, @alpha);
+    .border(@var-color, @var-alpha) {
+        #translucent > .border(@var-color, @var-alpha);
     }
 }
