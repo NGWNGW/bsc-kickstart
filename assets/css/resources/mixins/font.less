@@ -57,14 +57,14 @@
             @var-size: unit(@var);
             @var-base-size: unit(@var-1);
             @var-rem: (@var-size / @var-base-size);
-            font-size: ~"@{var-size}px"; 
+            font-size: ceil(@var-size * 1px);  
             font-size: ~"@{var-rem}rem";
         }
         .inception(@var, @var-1) when (isem(@var)) {
             @var-size: unit(@var);
             @var-base-size: unit(@var-1);
             @var-px: (@var-size * @var-base-size);
-            font-size: ~"@{var-px}px"; 
+            font-size: ceil(@var-px * 1px); 
             font-size: ~"@{var-size}rem";
         }
         .inception(@var, @var-1) when (ispercentage(@var)) {
