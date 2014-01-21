@@ -6,6 +6,7 @@
 * update Modernizr to 2.7.1
 * add new favicon
 * remove favicon src
+* update bsc-unit to v3.1
 
 ### 3.1.rc-1
 
